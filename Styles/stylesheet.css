@@ -77,7 +77,7 @@ nav {
 }
 
 
-#regularPageTitle {
+.regularPageTitle {
     /*WEIGHT: MEDIUM*/
     font-weight: 500;
     font-size: 40pt;
@@ -89,13 +89,13 @@ nav {
 
 
 /*********************BODY*********************/
-/* Homepage with homepage picture */
 
 main {
     /*Margin zodat de header (fixed) niet boven de inhoud komt*/
     margin-top: 130px;
 }
 
+/* Homepage with homepage picture */
 #foto {
     text-align: center;
     padding-top: 3%;
@@ -106,10 +106,15 @@ main {
     height: auto;
 }
 
-/*Playlist Library*/
+/*Playlist Library page*/
+#playlistPageTitle {
+
+    width: 100%;
+}
 
 #libraryContent {
     margin-left: 5%;
+    margin-top: 100px;
 }
 
 #introText_Library {
@@ -128,6 +133,25 @@ main {
     height: auto;
     width: 50%;
 }
+
+/*About page*/
+#aboutPageContent {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#imgAboutPage {
+    padding-left: 10%;
+    width: 30%;
+    height: auto;
+}
+
+#aboutPageText {
+    width: 35%;
+    padding-left: 10%;
+}
+
 
 /*********************FOOTER*********************/
 footer {
