@@ -1,0 +1,146 @@
+/*********************GENERAL*********************/
+@import url("https://use.typekit.net/fja6byn.css");
+
+* {
+    padding: 0pt;
+    background-color: rgb(53, 0, 0);
+    color: white;
+    font-family: quiche-sans, sans-serif;
+    /*WEIGHT: REGULAR*/
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*********************SCROLLBAR*********************/
+/*Voor de horizontale scrollbar op de Library pagina*/
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(53, 0, 0);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+/*********************HEADER*********************/
+header {
+    /* Voor de navbar een vaste plaats te geven zodat ze niet mee verplaatst */
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+#logo {
+    /*WEIGHT: BLACK*/
+    font-weight: 900;
+    font-size: 70pt;
+    display: inline;
+    padding-right: 25%;
+}
+
+nav {
+    /*WEIGHT: MEDIUM*/
+    font-weight: 500;
+    width: 100%;
+
+}
+
+#navItems {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-left: 1%;
+}
+
+#navItems li {
+
+    float: left;
+}
+
+.nav {
+    padding-top: 3.5%;
+    padding-left: 15%;
+
+}
+
+#navItems a {
+    display: block;
+    text-decoration: underline;
+}
+
+
+#regularPageTitle {
+    /*WEIGHT: MEDIUM*/
+    font-weight: 500;
+    font-size: 40pt;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+
+
+/*********************BODY*********************/
+/* Homepage with homepage picture */
+
+main {
+    /*Margin zodat de header (fixed) niet boven de inhoud komt*/
+    margin-top: 130px;
+}
+
+#foto {
+    text-align: center;
+    padding-top: 3%;
+}
+
+#foto img {
+    width: 40%;
+    height: auto;
+}
+
+/*Playlist Library*/
+
+#libraryContent {
+    margin-left: 5%;
+}
+
+#introText_Library {
+    width: 20%;
+    text-align: center;
+    float: left;
+    padding-right: 20%;
+}
+
+#playlistPictures {
+    display: flex;
+    flex-direction: row;
+}
+
+.playlistImage {
+    height: auto;
+    width: 50%;
+}
+
+/*********************FOOTER*********************/
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 45%;
+
+}
+
+#footerText {
+
+    font-weight: 500;
+    /*Medium*/
+    font-size: 10pt;
+
+}
