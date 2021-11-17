@@ -83,6 +83,7 @@ nav {
     font-size: 40pt;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 
@@ -92,13 +93,13 @@ nav {
 
 main {
     /*Margin zodat de header (fixed) niet boven de inhoud komt*/
-    margin-top: 130px;
+    margin-top: 250px;
 }
 
 /* Homepage with homepage picture */
 #foto {
     text-align: center;
-    padding-top: 3%;
+    padding-top: 0%;
 }
 
 #foto img {
@@ -114,7 +115,7 @@ main {
 
 #libraryContent {
     margin-left: 5%;
-    margin-top: 100px;
+    padding-top: 1%;
 }
 
 #introText_Library {
