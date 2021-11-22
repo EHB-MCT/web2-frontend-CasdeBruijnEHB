@@ -135,6 +135,56 @@ main {
     width: 50%;
 }
 
+
+/*Playlist result page*/
+#librarySubtitle {
+    font-weight: 500;
+    font-size: 30pt;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#playlistResultImages {
+    height: auto;
+    width: 28%;
+}
+
+#container_playlist_cooking {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#textContentPlaylistResult {
+    text-align: left;
+}
+
+#playlist_results_links {
+    padding-top: 1%;
+}
+
+#playlistLinksList {
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+#playlistLinksList li {
+    text-transform: uppercase;
+    font-size: 15pt;
+    padding-left: 12%;
+    padding-right: 12%;
+
+}
+
+#playlistLinksList a {
+
+    text-decoration: underline;
+
+}
+
+
 /*About page*/
 #aboutPageContent {
     display: flex;
