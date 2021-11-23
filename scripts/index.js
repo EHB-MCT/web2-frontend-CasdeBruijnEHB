@@ -1,15 +1,8 @@
 "use strict";
 
 export function curatedPlaylistFollow(e) {
-
     getToken();
-    requestUserAuth();
-    if (window.location.hash) {
-        getReturnAccessToken(window.location.hash);
-        followPlaylist(token, playlistIdFollow, parametersArray[0]);
-    } else {
-        console.log("nada");
-    }
+    requestUserAuth("followPlaylist");
 }
 
 
@@ -120,11 +113,21 @@ async function getPlaylist(token, playlistID) {
 }
 
 //========================================================================
-export async function requestUserAuth() {
-    console.log("HELA");
+export async function requestUserAuth(requestType) {
+    //Er wordt een request type meegegeven voor te weten welke functie dan moet worden opgeroepen
+    //Kan voor te volgen (FollowPlaylist), voor te maken zijn (createPlaylist)
     let url = `${spotify_authorize_endpoint}?client_id=${clientId}&redirect_uri=${redirect_url_afterlogin}&scope=${scopes_url_parm}&response_type=token&show_dialog=true`;
     window.location.replace(url);
     console.log("click login");
+
+    if (requestType == "followPlaylist") {
+        if (window.location.hash) {
+            getReturnAccessToken(window.location.hash);
+            followPlaylist(token, playlistIdFollow, parametersArray[0]);
+        } else {
+            console.log("nada");
+        }
+    }
 
 }
 
