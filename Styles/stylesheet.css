@@ -96,6 +96,11 @@ main {
     margin-top: 250px;
 }
 
+#mainHomepage {
+    /*Margin voor de homepagina, iets lager door de foto*/
+    margin-top: 185px;
+}
+
 /* Homepage with homepage picture */
 #foto {
     text-align: center;
@@ -109,7 +114,6 @@ main {
 
 /*Playlist Library page*/
 #playlistPageTitle {
-
     width: 100%;
 }
 
@@ -119,13 +123,22 @@ main {
 }
 
 #introText_Library {
+    position: fixed;
+    left: 0;
+    top: 33%;
+    height: 100%;
+    padding-top: 2%;
+    padding-left: 17%;
+    padding-right: 7%;
     width: 20%;
     text-align: center;
     float: left;
-    padding-right: 20%;
+    z-index: 5;
+
 }
 
 #playlistPictures {
+    margin-left: 40%;
     display: flex;
     flex-direction: row;
 }

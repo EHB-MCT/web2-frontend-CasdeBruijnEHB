@@ -1,5 +1,8 @@
+import * as api from './index.js';
+
 let containerLibrary = document.getElementById("playlistPictures");
 let pageElements = [];
+let followPlaylistButtons = [];
 
 const playlist = {
     playlistLibrary: [{
@@ -71,6 +74,7 @@ const playlist = {
         containerLibrary.innerHTML = html;
         pageElements = document.getElementsByClassName("playlistImage");
 
+
     },
     clickEvent() {
         //Een eventlistener toevoegen aan de foto's die ze redirect naar de desbetreffende content
@@ -87,17 +91,17 @@ const playlist = {
     fillResultPage(id) {
         //De library catalogus op onzichtbaar zetten
         let libraryContent = document.getElementById("libraryContent");
-        console.log(libraryContent)
+        //console.log(libraryContent)
         libraryContent.style.display = "none";
 
         //Eerst gaan we zoeken naar een match met het geselecteerde ID en in de library.
-        console.log("id: ", id);
+        //console.log("id: ", id);
         let indexLibraryPage;
         this.playlistLibrary.forEach((element, index) => {
-            console.log(element.id);
+            //console.log(element.id);
             if (id === `playlist_${element.id}`) {
-                console.log("Match!", element);
-                console.log("index", index);
+                //console.log("Match!", element);
+                //console.log("index", index);
                 indexLibraryPage = index;
             }
         })
@@ -115,7 +119,7 @@ const playlist = {
     </div>
     <div id="playlist_results_links">
         <ul id="playlistLinksList">
-            <li id="openSpotifyButton" class="playlistLinks"><a href="">Open in Spotify</a> </li>
+            <li id="openSpotifyButton" class="playlistLinks">Open in Spotify </li>
             <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
         </ul>
     </div>
@@ -123,6 +127,23 @@ const playlist = {
 
         resultContent.innerHTML = html;
         resultContent.style.display = "block";
+        this.followPlaylistClick();
+    },
+    followPlaylistClick() {
+        //Hier wordt de follow button ingelikt bij de Library. 
+        //Vervolgens moet er een authenticatie worden opengedaan waar de user moet inloggen. Daarna kan het opgeslagen worden!
+        followPlaylistButtons = document.getElementsByClassName("playlistLinks");
+        console.log("Brrr", followPlaylistButtons);
+
+        for (let i = 0; i < followPlaylistButtons.length; i++) {
+            followPlaylistButtons[i].addEventListener("click", (e) => {
+                console.log("YEP");
+                api.curatedPlaylistFollow();
+            })
+        }
+    },
+    savedResultpage() {
+
     }
 }
 

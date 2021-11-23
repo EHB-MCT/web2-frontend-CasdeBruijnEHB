@@ -1,16 +1,42 @@
 "use strict";
 
+export function curatedPlaylistFollow(e) {
+
+    getToken();
+    requestUserAuth();
+    if (window.location.hash) {
+        getReturnAccessToken(window.location.hash);
+        followPlaylist(token, playlistIdFollow, parametersArray[0]);
+    } else {
+        console.log("nada");
+    }
+}
+
+
+/*
+window.addEventListener('click', (event) => {
+
+    console.log('page is fully loaded');
+    let playlistFollowButton = document.getElementsByClassName("playlistLinks");
+    console.log("Brrr", playlistFollowButton[0]);
+
+});
+*/
 
 //console.log("window hash", window.location.hash)
 
+console.log("loaded!")
+console.log(document.getElementById("playlistLinks"));
 
 //Login button
-document.getElementById("buttonOne").addEventListener("click", function () {
+/*
+playlistFollowButton[0].addEventListener("click", function () {
     console.log("click");
     requestUserAuth();
 
 });
-
+*/
+/*
 //Button to create playlist
 document.getElementById("buttonAdd").addEventListener("click", function () {
     //console.log("click follow");
@@ -21,8 +47,9 @@ document.getElementById("buttonAdd").addEventListener("click", function () {
         console.log('No hash');
     }
 });
-
+*/
 //button to follow playlist
+/*
 document.getElementById("buttonFollowPlaylist").addEventListener("click", function () {
 
     if (window.location.hash) {
@@ -30,10 +57,11 @@ document.getElementById("buttonFollowPlaylist").addEventListener("click", functi
         followPlaylist(token, playlistIdFollow, parametersArray[0]);
     }
 });
+*/
 
 
 //EXTRA Authorization Spotify variabelen
-const redirect_url_afterlogin = "http://127.0.0.1:5501/index.html";
+const redirect_url_afterlogin = "http://127.0.0.1:5501/playlistLibrary.html";
 //const scopes = ["playlist-modify-public", "playlist-modify-private"]; //playlist-modify-public voor follow a playlist
 const scopes = ["playlist-modify-public", "playlist-modify-private", "user-read-private", "user-read-email", "ugc-image-upload"]; //Scopes met get Current user data (ID)
 const spotify_authorize_endpoint = "https://accounts.spotify.com/authorize";
@@ -52,7 +80,7 @@ const clientSecret = '9e9b58417cdf4969a3f4e7885765f7f9';
 let token = "";
 let playlistId = "37i9dQZF1DX1kfybUJZB6S"; //Random playlist, Top hits belgie
 let userId = "119096959"; //Test user ID, van mij (Cas)
-let playlistIdFollow = "37i9dQZF1DX1kfybUJZB6S";
+let playlistIdFollow = "37i9dQZF1DXe8E8oqpmTDI";
 
 
 
@@ -71,7 +99,7 @@ async function getToken() {
     token = data.access_token;
 
     //Functie aanroepen voor genres
-    getPlaylist(token, playlistId);
+    //getPlaylist(token, playlistId);
 
 }
 getToken();
@@ -92,12 +120,11 @@ async function getPlaylist(token, playlistID) {
 }
 
 //========================================================================
-async function requestUserAuth() {
+export async function requestUserAuth() {
+    console.log("HELA");
     let url = `${spotify_authorize_endpoint}?client_id=${clientId}&redirect_uri=${redirect_url_afterlogin}&scope=${scopes_url_parm}&response_type=token&show_dialog=true`;
     window.location.replace(url);
     console.log("click login");
-
-
 
 }
 
@@ -146,8 +173,6 @@ async function followPlaylist(token, playlistID, accesstoken) {
     //rare error? 
     const data2 = await result2.json();
     console.log("Follow playlist", data2);
-
-
 
 }
 
