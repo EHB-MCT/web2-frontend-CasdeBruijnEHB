@@ -4,7 +4,7 @@ let containerLibrary = document.getElementById("playlistPictures");
 let pageElements = [];
 let followPlaylistButtons = [];
 
-const playlist = {
+export const playlist = {
     playlistLibrary: [{
         id: "cooking",
         title: "Cooking",
@@ -143,6 +143,44 @@ const playlist = {
         }
     },
     savedResultpage() {
+        //De library catalogus op onzichtbaar zetten
+        let libraryContent = document.getElementById("libraryContent");
+        //console.log(libraryContent)
+        libraryContent.style.display = "none";
+
+        //Eerst gaan we zoeken naar een match met het geselecteerde ID en in de library.
+        //console.log("id: ", id);
+        let indexLibraryPage;
+        this.playlistLibrary.forEach((element, index) => {
+            //console.log(element.id);
+            if (id === `playlist_${element.id}`) {
+                //console.log("Match!", element);
+                //console.log("index", index);
+                indexLibraryPage = index;
+            }
+        })
+
+        //De resultaatpage zichtbaar
+        let resultContent = document.getElementById("container_playlist_result");
+        let html = `
+         <div id="container_playlist_cooking">
+         <img id="playlistResultImages" src="${this.playlistLibrary[indexLibraryPage].image}" alt="">
+         <div id="textContentPlaylistResult">
+             <h2 id="librarySubtitle">${this.playlistLibrary[indexLibraryPage].title}</h2>
+             <p id="curatedBy">${this.playlistLibrary[indexLibraryPage].curated}</p>
+             <p id="playlistDescription">${this.playlistLibrary[indexLibraryPage].description}</p>
+         </div>
+     </div>
+     <div id="playlist_results_links">
+         <ul id="playlistLinksList">
+             <li id="openSpotifyButton" class="playlistLinks">Saved!</li>
+             <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
+         </ul>
+     </div>
+         `
+
+        resultContent.innerHTML = html;
+        resultContent.style.display = "block";
 
     }
 }

@@ -37,6 +37,10 @@ header {
 
 }
 
+img {
+    cursor: pointer;
+}
+
 #logo {
     /*WEIGHT: BLACK*/
     font-weight: 900;
@@ -73,7 +77,7 @@ nav {
 
 #navItems a {
     display: block;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -109,6 +113,20 @@ main {
 
 #foto img {
     width: 40%;
+    height: auto;
+}
+
+/*Playlist generator page*/
+#GeneratorContainer {
+    padding-top: 4%;
+    display: flex;
+    justify-content: center;
+}
+
+.generatorImages {
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 23%;
     height: auto;
 }
 

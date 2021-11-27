@@ -1,5 +1,6 @@
 "use strict";
-
+import * as playlists from './playlistLibrary.js'
+//Deze functie wordt aangeroepen in de playlist library wanneer op de follow playlist knop wordt geklikt.
 export function curatedPlaylistFollow(e) {
     getToken();
     requestUserAuth("followPlaylist");
@@ -124,6 +125,7 @@ export async function requestUserAuth(requestType) {
         if (window.location.hash) {
             getReturnAccessToken(window.location.hash);
             followPlaylist(token, playlistIdFollow, parametersArray[0]);
+            //playlists.playlist.savedResultpage(); ==> nog uitzoeken met redirect url
         } else {
             console.log("nada");
         }
