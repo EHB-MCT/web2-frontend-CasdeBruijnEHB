@@ -3,6 +3,9 @@ let containerImages = document.getElementById("GeneratorContainer");
 let progressBarClicks;
 let progressBarCircles = document.getElementsByClassName("progressItems");
 
+//This variable is used to save the urls of the chosen images. In order to prohibit duplicates
+let chosenImagesUrls = [];
+
 const playlistGenerator = {
     category_images: [{
         imageUrl: "./Images/Generator/CategoryPictures/One2.png",
@@ -118,45 +121,60 @@ const playlistGenerator = {
         //Er zijn drie categorieën met foto's.
         switch (maincategory) {
             case "brownCreamGreenBlue":
-                randomIndexOne = Math.floor(Math.random() * playlistGenerator.playlist_brownCreamGreenBlue.length);
-                randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_brownCreamGreenBlue.length);
-
-                while (randomIndexOne == randomIndexTwo) {
-                    randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_brownCreamGreenBlue.length)
+                //Eerst kijken of er al iets in de array zit (mag maar 1x toevoegen. Daarna de juiste urls toevoegen.)
+                if (chosenImagesUrls.length <= 1) {
+                    chosenImagesUrls = [];
+                    for (let i = 0; i < playlistGenerator.playlist_brownCreamGreenBlue.length; i++) {
+                        chosenImagesUrls.push(playlistGenerator.playlist_brownCreamGreenBlue[i].imageUrl);
+                    }
                 }
-                html = `
-        <img class="generatorImages" id="${playlistGenerator.playlist_brownCreamGreenBlue[randomIndexOne].mainCategory}" src="${playlistGenerator.playlist_brownCreamGreenBlue[randomIndexOne].imageUrl}" alt="Image one">
-        <img class="generatorImages" id="${playlistGenerator.playlist_brownCreamGreenBlue[randomIndexTwo].mainCategory}" src="${playlistGenerator.playlist_brownCreamGreenBlue[randomIndexTwo].imageUrl}" alt="Image Two">`;
-
-
                 break;
             case "orangeYellowPink":
-                randomIndexOne = Math.floor(Math.random() * playlistGenerator.playlist_orangeYellowPink.length);
-                randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_orangeYellowPink.length);
-
-                while (randomIndexOne == randomIndexTwo) {
-                    randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_orangeYellowPink.length)
+                //Eerst kijken of er al iets in de array zit (mag maar 1x toevoegen. Daarna de juiste urls toevoegen.)
+                if (chosenImagesUrls.length <= 1) {
+                    chosenImagesUrls = [];
+                    for (let i = 0; i < playlistGenerator.playlist_orangeYellowPink.length; i++) {
+                        chosenImagesUrls.push(playlistGenerator.playlist_orangeYellowPink[i].imageUrl);
+                    }
                 }
-                html = `
-                <img class="generatorImages" id="${playlistGenerator.playlist_orangeYellowPink[randomIndexOne].mainCategory}" src="${playlistGenerator.playlist_orangeYellowPink[randomIndexOne].imageUrl}" alt="Image one">
-                <img class="generatorImages" id="${playlistGenerator.playlist_orangeYellowPink[randomIndexTwo].mainCategory}" src="${playlistGenerator.playlist_orangeYellowPink[randomIndexTwo].imageUrl}" alt="Image Two">`;
-
                 break;
             case "purpleBlackRed":
-                randomIndexOne = Math.floor(Math.random() * playlistGenerator.playlist_purpleBlackRed.length);
-                randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_purpleBlackRed.length);
-
-                while (randomIndexOne == randomIndexTwo) {
-                    randomIndexTwo = Math.floor(Math.random() * playlistGenerator.playlist_purpleBlackRed.length)
+                if (chosenImagesUrls.length <= 1) {
+                    chosenImagesUrls = [];
+                    for (let i = 0; i < playlistGenerator.playlist_purpleBlackRed.length; i++) {
+                        chosenImagesUrls.push(playlistGenerator.playlist_purpleBlackRed[i].imageUrl);
+                    }
                 }
-                html = `
-                <img class="generatorImages" id="${playlistGenerator.playlist_purpleBlackRed[randomIndexOne].mainCategory}" src="${playlistGenerator.playlist_purpleBlackRed[randomIndexOne].imageUrl}" alt="Image one">
-                <img class="generatorImages" id="${playlistGenerator.playlist_purpleBlackRed[randomIndexTwo].mainCategory}" src="${playlistGenerator.playlist_purpleBlackRed[randomIndexTwo].imageUrl}" alt="Image Two">`;
                 break;
         }
+
+
+        //Random images worden gekozen
+        randomIndexOne = Math.floor(Math.random() * chosenImagesUrls.length);
+        randomIndexTwo = Math.floor(Math.random() * chosenImagesUrls.length);
+        //Checken of het dezelfde zouden zijn
+        while (randomIndexOne == randomIndexTwo) {
+            randomIndexTwo = Math.floor(Math.random() * chosenImagesUrls.length)
+        }
+
+        html = `
+        <img class="generatorImages" id="${maincategory}" src="${chosenImagesUrls[randomIndexOne]}" alt="Image one">
+        <img class="generatorImages" id="${maincategory}" src="${chosenImagesUrls[randomIndexTwo]}" alt="Image Two">`;
+
+        //Nu moeten de foto urls uit de array verwijderd worden.
+        //eerste kan gewoon met splice maar daarna worden de indexes veranderd dus moet er een -1 of +1 bijkomen.
+        chosenImagesUrls.splice(randomIndexOne, 1)
+        if (randomIndexOne < randomIndexTwo) {
+            chosenImagesUrls.splice(randomIndexTwo - 1, 1)
+        } else {
+            chosenImagesUrls.splice(randomIndexTwo + 1, 1)
+        }
+
+
+
         //Loading animatie 
         loaderAnimation.generatorAnimation();
-
+        //Toevoegen HTML en functies toewijzen aan de images
         containerImages.innerHTML = html;
         generatorImageButtons();
 
