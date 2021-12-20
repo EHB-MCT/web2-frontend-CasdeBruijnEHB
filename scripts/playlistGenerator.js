@@ -9,15 +9,24 @@ let chosenImagesUrls = [];
 
 const playlistGenerator = {
     category_images: [{
-        imageUrl: "./Images/Generator/CategoryPictures/One2.png",
-        mainCategory: "brownCreamGreenBlue"
-    }, {
-        imageUrl: "./Images/Generator/CategoryPictures/Three.png",
-        mainCategory: "orangeYellowPink"
-    }, {
-        imageUrl: "./Images/Generator/CategoryPictures/Four.png",
-        mainCategory: "purpleBlackRed"
-    }],
+            imageUrl: "./Images/Generator/CategoryPictures/One.png",
+            mainCategory: "purpleBlackRed"
+        }, {
+            imageUrl: "./Images/Generator/CategoryPictures/Two.png",
+            mainCategory: "purpleBlackRed"
+        }, {
+            imageUrl: "./Images/Generator/CategoryPictures/Three.png",
+            mainCategory: "orangeYellowPink"
+        },
+        {
+            imageUrl: "./Images/Generator/CategoryPictures/Four.png",
+            mainCategory: "orangeYellowPink"
+        },
+        {
+            imageUrl: "./Images/Generator/CategoryPictures/Five.png",
+            mainCategory: "brownCreamGreenBlue"
+        }
+    ],
     playlist_brownCreamGreenBlue: [{
         imageUrl: "./Images/Generator/brownCreamGreenBlue/Funky.png",
         score: "1",
@@ -184,7 +193,7 @@ function generatorImageButtons() {
             } else if (progressBarClicks >= 3) {
                 //Wanneer de progressbar vol is = de quiz afgelopen en mag het resultaat weergeven worden.
                 generateScore(e.target);
-                fillResultPage();
+                fillResultPage(e.target.id);
             }
         })
     }
@@ -192,6 +201,9 @@ function generatorImageButtons() {
 
 function generateScore(elementID) {
     playlistGenerator[`playlist_${elementID.id}`].forEach(element => {
+        //Voor de juiste imagescore te pakken, wordt de url vergeleken met die in de arrays
+        //Als ze een match vindt, wordt de score er van genomen
+        //De website url is wel aangepast dus daarom moest er een substring worden toegevoegd.
         let urlTarget = elementID.src;
         urlTarget = urlTarget.substring(urlTarget.indexOf("Images") - 1);
         let newUrl = "." + urlTarget;
@@ -203,7 +215,31 @@ function generateScore(elementID) {
     });
 }
 
-function fillResultPage(score, category) {
+function fillResultPage(category) {
     console.log("Fill result");
     console.log("totaal:", calculateScore)
+    //window.location.replace("./playlistResultPage.html");
+
+    let containerResult = document.getElementById("generatorPage");
+    let titlepage = document.getElementById("titleGenerator");
+    let html = `
+    <div id="container_playlist_cooking">
+    <img id="playlistResultImages" src="" alt="">
+    <div id="textContentPlaylistResult">
+        <h2 id="librarySubtitle">Brrreyo</h2>
+        <p id="curatedBy">Curated By</p>
+        <p id="playlistDescription">Ayooo</p>
+    </div>
+</div>
+<div id="playlist_results_links">
+    <ul id="playlistLinksList">
+        <li id="openSpotifyButton" class="playlistLinks">Open in Spotify </li>
+        <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
+    </ul>
+</div>
+    `
+    titlepage.innerHTML = "The playlist for you"
+    containerResult.innerHTML = html;
+    containerResult.style.display = "block";
+
 }

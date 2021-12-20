@@ -71,7 +71,7 @@ nav {
 
 .nav {
     padding-top: 3.5%;
-    padding-left: 15%;
+    padding-left: 10%;
 
 }
 
@@ -117,6 +117,25 @@ main {
 }
 
 /*Playlist generator page*/
+/* Intro page*/
+#containerGeneratorIntro {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15%;
+}
+
+#generatorIntrotext {
+    width: 25%;
+}
+
+#imagestartexperience {
+    width: 35%;
+    padding-left: 25%;
+    height: auto;
+}
+
+/*Regular content*/
+
 #GeneratorContainer {
     padding-top: 4%;
     display: flex;
@@ -275,13 +294,13 @@ main {
 
 #imgAboutPage {
     padding-left: 10%;
-    width: 30%;
+    width: 37%;
     height: auto;
 }
 
 #aboutPageText {
     width: 35%;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 

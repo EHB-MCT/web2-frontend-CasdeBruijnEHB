@@ -10,15 +10,24 @@ let chosenImagesUrls = [];
 
 const playlistGenerator = {
     category_images: [{
-        imageUrl: "./Images/Generator/CategoryPictures/One2.png",
-        mainCategory: "brownCreamGreenBlue"
-    }, {
-        imageUrl: "./Images/Generator/CategoryPictures/Three.png",
-        mainCategory: "orangeYellowPink"
-    }, {
-        imageUrl: "./Images/Generator/CategoryPictures/Four.png",
-        mainCategory: "purpleBlackRed"
-    }],
+            imageUrl: "./Images/Generator/CategoryPictures/One.png",
+            mainCategory: "purpleBlackRed"
+        }, {
+            imageUrl: "./Images/Generator/CategoryPictures/Two.png",
+            mainCategory: "purpleBlackRed"
+        }, {
+            imageUrl: "./Images/Generator/CategoryPictures/Three.png",
+            mainCategory: "orangeYellowPink"
+        },
+        {
+            imageUrl: "./Images/Generator/CategoryPictures/Four.png",
+            mainCategory: "orangeYellowPink"
+        },
+        {
+            imageUrl: "./Images/Generator/CategoryPictures/Five.png",
+            mainCategory: "brownCreamGreenBlue"
+        }
+    ],
     playlist_brownCreamGreenBlue: [{
         imageUrl: "./Images/Generator/brownCreamGreenBlue/Funky.png",
         score: "1",
