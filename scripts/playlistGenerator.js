@@ -224,11 +224,11 @@ function fillResultPage(category) {
     let titlepage = document.getElementById("titleGenerator");
     let html = `
     <div id="container_playlist_cooking">
-    <img id="playlistResultImages" src="" alt="">
+    <img id="playlistResultImages" src="./Images/PlaylistLibrary/CDCuratedCooking.png" alt="">
     <div id="textContentPlaylistResult">
-        <h2 id="librarySubtitle">Brrreyo</h2>
-        <p id="curatedBy">Curated By</p>
-        <p id="playlistDescription">Ayooo</p>
+        <h2 id="librarySubtitle">Stumble Playlists: 01</h2>
+        <p id="curatedBy"></p>
+        <p id="playlistDescription">Featuring artists like Kid Cudi, Tame Impala and Erykah Badu.</p>
     </div>
 </div>
 <div id="playlist_results_links">

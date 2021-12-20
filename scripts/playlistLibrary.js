@@ -195,3 +195,10 @@ function init() {
 
 }
 init();
+
+async function getPlaylists() {
+    const result = await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedplaylists');
+    const data = await result.json();
+    console.log("data api");
+}
+getPlaylists();
