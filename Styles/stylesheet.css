@@ -106,31 +106,42 @@ main {
 }
 
 /* Homepage with homepage picture */
-#foto {
+#homepagefoto {
+    display: flex;
     text-align: center;
     padding-top: 0%;
 }
 
-#foto img {
+#homepagefoto img {
+    padding-left: 15%;
     width: 40%;
     height: auto;
+}
+
+#homepagefoto p {
+    padding-top: 6%;
+    padding-left: 3%;
+    width: 20%;
 }
 
 /*Playlist generator page*/
 /* Intro page*/
 #containerGeneratorIntro {
+    padding-top: 1%;
     display: flex;
     flex-wrap: wrap;
     padding-left: 15%;
+    text-align: center;
 }
 
 #generatorIntrotext {
-    width: 25%;
+    width: 30%;
 }
 
 #imagestartexperience {
+    padding-top: 1%;
     width: 35%;
-    padding-left: 25%;
+    padding-left: 15%;
     height: auto;
 }
 
@@ -287,20 +298,22 @@ main {
 
 /*About page*/
 #aboutPageContent {
+    padding-top: 1%;
     display: flex;
     flex-direction: row;
 
 }
 
 #imgAboutPage {
-    padding-left: 10%;
-    width: 37%;
+    padding-top: 1%;
+    padding-left: 5%;
+    width: 45%;
     height: auto;
 }
 
 #aboutPageText {
     width: 35%;
-    padding-left: 5%;
+    padding-left: 1%;
 }
 
 
