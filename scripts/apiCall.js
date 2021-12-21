@@ -1,27 +1,18 @@
 //For spotify API call
 "use strict";
-//Een token ophalen bij het laden van de webpagina.
-/*
-buttonCreate.addEventListener("click", function () {
-    //requestUserAuth("Create");
-    console.log("Click create")
-    getReturnAccessToken(window.location.hash);
-    createPlaylist(token, userId, parametersArray[0]);
 
-})
-buttonFollow.addEventListener("click", function () {
-    //requestUserAuth("Follow");
-    console.log("Click follow")
-    getReturnAccessToken(window.location.hash);
-    followPlaylist(token, playlistIdFollow, parametersArray[0]);
-})
-buttonAuthen.addEventListener("click", function () {
-    getToken()
-    requestUserAuth();
-})
-*/
+//EXTRA Authorization Spotify variabelen
 
-export function authenticateUser() {
+export function authenticateUser(redirectlocation) {
+    if (redirectlocation == 'spotifyLibrary') {
+        console.log("Naar library page");
+        redirect_url_afterlogin = "http://127.0.0.1:5501/playlistLibrary.html";
+
+    } else {
+        console.log("Naar generator page")
+        redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
+
+    }
     getToken()
     requestUserAuth();
 }
@@ -31,9 +22,7 @@ export function createPlaylistForUser(playlistData) {
     createPlaylist(token, userId, parametersArray[0], playlistData);
 }
 
-
-//EXTRA Authorization Spotify variabelen
-const redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
+let redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
 //const scopes = ["playlist-modify-public", "playlist-modify-private"]; //playlist-modify-public voor follow a playlist
 const scopes = ["playlist-modify-public", "playlist-modify-private", "user-read-private", "user-read-email", "ugc-image-upload"]; //Scopes met get Current user data (ID)
 const spotify_authorize_endpoint = "https://accounts.spotify.com/authorize";
@@ -50,6 +39,7 @@ let userId = "119096959"; //Test user ID, van mij (Cas)
 let playlistIdFollow = "37i9dQZF1DX1kfybUJZB6S";
 
 let createdPlaylistID;
+
 
 
 

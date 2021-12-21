@@ -182,7 +182,7 @@ function init() {
         playlistGenerator.initiateGenerator();
     } else {
         console.log("Not Authenticated");
-        spotifyApi.authenticateUser();
+        spotifyApi.authenticateUser('spotifyGenerator');
     }
 
 }
@@ -273,7 +273,7 @@ function fillResultPage(category) {
 <div id="playlist_results_links">
     <ul id="playlistLinksList">
         <li id="openSpotifyButton" class="playlistLinks">Save on Spotify</li>
-        <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
+        <li id="goBackButton" class="playlistLinks"><a href="./playlistGenerator.html">Go back</a></li>
     </ul>
 </div>
     `
@@ -284,8 +284,13 @@ function fillResultPage(category) {
     //add functions to open spotify button
     let spotifyOpenButtons = document.getElementById("openSpotifyButton");
     spotifyOpenButtons.addEventListener("click", function () {
-        callSpotifyAPI(oneChosenPlaylist);
-        spotifyOpenButtons.innerHTML = "Playlist saved!"
+        if (spotifyOpenButtons.innerHTML == "Playlist saved!") {
+            alert("The playlist was already saved!")
+        } else {
+            spotifyOpenButtons.classList.remove("playlistLinks");
+            spotifyOpenButtons.innerHTML = "Playlist saved!"
+            callSpotifyAPI(oneChosenPlaylist);
+        }
     })
 }
 

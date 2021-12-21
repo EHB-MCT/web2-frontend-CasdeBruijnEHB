@@ -290,9 +290,11 @@ main {
 }
 
 #playlistLinksList a {
-
     text-decoration: underline;
+}
 
+.playlistLinks {
+    text-decoration: underline;
 }
 
 /*Thank you page*/

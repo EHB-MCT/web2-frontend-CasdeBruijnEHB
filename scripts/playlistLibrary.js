@@ -1,4 +1,6 @@
 import * as api from './index.js';
+import * as spotifyApi from './apiCall.js'
+
 
 let containerLibrary = document.getElementById("playlistPictures");
 
@@ -190,8 +192,13 @@ export const playlist = {
 
 
 function init() {
-
-    getPlaylists();
+    if (window.location.hash) {
+        //Already authenticated
+        getPlaylists();
+    } else {
+        //Not yet authenticated
+        spotifyApi.authenticateUser('spotifyLibrary');
+    }
 
 
 }
@@ -219,7 +226,7 @@ function addCuratedPlaylists(playlists) {
         //console.log(element);
 
         html += `
-            <img id="${element._id}" class="playlistImage" src="data:image/jpeg;base64,${element.image}"
+            <img id="${element._id}" class="playlistImage" src="data:image/jpeg;base64,${element.imageurl}"
             alt="Cover ${element.title}">
             `
     })
@@ -257,7 +264,7 @@ function showPlaylistResult(clickELementID) {
     let resultContent = document.getElementById("container_playlist_result");
     let html = `
      <div id="container_playlist_cooking">
-     <img id="playlistResultImages" src="data:image/jpeg;base64,${chosenPlaylist.image}" alt="">
+     <img id="playlistResultImages" src="data:image/jpeg;base64,${chosenPlaylist.imageurl}" alt="">
      <div id="textContentPlaylistResult">
          <h2 id="librarySubtitle">${chosenPlaylist.title}</h2>
          <p id="curatedBy">${chosenPlaylist.description}</p>
@@ -276,8 +283,17 @@ function showPlaylistResult(clickELementID) {
 
     let openSpotifyButton = document.getElementById("openSpotifyButton");
     openSpotifyButton.addEventListener("click", function () {
-        console.log("Save on spotify");
+        if (openSpotifyButton.innerHTML == "Playlist saved!") {
+            alert("The playlist was already saved!")
+        } else {
+            openSpotifyButton.classList.remove("playlistLinks");
+            openSpotifyButton.innerHTML = "Playlist saved!"
+            callSpotifyAPI(chosenPlaylist)
+        }
     })
-    console.log(openSpotifyButton);
+}
 
+function callSpotifyAPI(chosenPlaylist) {
+    console.log("Calling API...")
+    spotifyApi.createPlaylistForUser(chosenPlaylist);
 }
