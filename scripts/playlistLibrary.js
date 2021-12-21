@@ -1,9 +1,10 @@
 import * as api from './index.js';
 
 let containerLibrary = document.getElementById("playlistPictures");
+
+/*
 let pageElements = [];
 let followPlaylistButtons = [];
-
 export const playlist = {
     playlistLibrary: [{
         id: "cooking",
@@ -185,24 +186,25 @@ export const playlist = {
     }
 }
 
-
+*/
 
 
 function init() {
-    //Create playlists naargelang de hoeveelheid 
-    //playlist.fillHTML();
-    playlist.clickEvent();
+
+    getPlaylists();
+
 
 }
 init();
-
+let playlistDataCurated;
 async function getPlaylists() {
     console.log("fetch")
     await fetch('https://courseprojectwebii.herokuapp.com/getCuratedPlaylists').then(response => {
         return response.json();
     }).then(data => {
         //challengesList = data;
-        console.log("Fetch this: ", data);
+        //console.log("Fetch this: ", data);
+        playlistDataCurated = data;
         addCuratedPlaylists(data)
     })
 
@@ -210,23 +212,22 @@ async function getPlaylists() {
         return response.json();
     }).then(data => {
         //challengesList = data;
-        console.log("Fetch this: ", data);
+        //console.log("Fetch this: ", data);
     })
 
 
 
 }
-getPlaylists();
 
 function addCuratedPlaylists(playlists) {
-    console.log("add", playlists)
+    //console.log("add", playlists)
     let html = "";
 
     playlists.forEach((element, index) => {
-        console.log(element);
+        //console.log(element);
 
         html += `
-            <img class="playlistImage" src="data:image/jpeg;base64,${element.image}"
+            <img id="${element._id}" class="playlistImage" src="data:image/jpeg;base64,${element.image}"
             alt="Cover ${element.title}">
             `
     })
@@ -237,10 +238,49 @@ function addCuratedPlaylists(playlists) {
 }
 
 function addButtonEvents(buttons) {
-
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", (e) => {
-            console.log(e.target)
+            console.log(e.target.id)
+            showPlaylistResult(e.target.id);
         })
     }
+}
+
+function showPlaylistResult(clickELementID) {
+    console.log("initial data curated: ", playlistDataCurated);
+    console.log("click data: ", clickELementID);
+    //https://www.codegrepper.com/code-examples/javascript/javascript+get+array+object+by+id
+    //This is a function to get an element out of an array, based on the chosen ID.
+    let chosenPlaylist = playlistDataCurated.find(x => x._id === clickELementID);
+    console.log("value", chosenPlaylist)
+
+    //Code to show the result in the HTML
+    //De library catalogus op onzichtbaar zetten
+    let libraryContent = document.getElementById("libraryContent");
+    //console.log(libraryContent)
+    libraryContent.style.display = "none";
+
+
+
+    //De resultaatpage zichtbaar
+    let resultContent = document.getElementById("container_playlist_result");
+    let html = `
+     <div id="container_playlist_cooking">
+     <img id="playlistResultImages" src="data:image/jpeg;base64,${chosenPlaylist.image}" alt="">
+     <div id="textContentPlaylistResult">
+         <h2 id="librarySubtitle">${chosenPlaylist.title}</h2>
+         <p id="curatedBy">${chosenPlaylist.description}</p>
+         <p id="playlistDescription">${chosenPlaylist.description}</p>
+     </div>
+ </div>
+ <div id="playlist_results_links">
+     <ul id="playlistLinksList">
+         <li id="openSpotifyButton" class="playlistLinks">Save playlist</li>
+         <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
+     </ul>
+ </div>
+     `
+    resultContent.innerHTML = html;
+    resultContent.style.display = "block";
+
 }
