@@ -190,15 +190,57 @@ export const playlist = {
 
 function init() {
     //Create playlists naargelang de hoeveelheid 
-    playlist.fillHTML();
+    //playlist.fillHTML();
     playlist.clickEvent();
 
 }
 init();
 
 async function getPlaylists() {
-    const result = await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedplaylists');
-    const data = await result.json();
-    console.log("data api");
+    console.log("fetch")
+    await fetch('https://courseprojectwebii.herokuapp.com/getCuratedPlaylists').then(response => {
+        return response.json();
+    }).then(data => {
+        //challengesList = data;
+        console.log("Fetch this: ", data);
+        addCuratedPlaylists(data)
+    })
+
+    await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
+        return response.json();
+    }).then(data => {
+        //challengesList = data;
+        console.log("Fetch this: ", data);
+    })
+
+
+
 }
 getPlaylists();
+
+function addCuratedPlaylists(playlists) {
+    console.log("add", playlists)
+    let html = "";
+
+    playlists.forEach((element, index) => {
+        console.log(element);
+
+        html += `
+            <img class="playlistImage" src="data:image/jpeg;base64,${element.image}"
+            alt="Cover ${element.title}">
+            `
+    })
+    containerLibrary.innerHTML = html;
+    pageElements = document.getElementsByClassName("playlistImage");
+    let buttons = document.getElementsByClassName("playlistImage");
+    addButtonEvents(buttons);
+}
+
+function addButtonEvents(buttons) {
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", (e) => {
+            console.log(e.target)
+        })
+    }
+}
