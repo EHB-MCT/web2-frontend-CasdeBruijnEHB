@@ -1,8 +1,11 @@
 import * as loaderAnimation from './loader.js'
+import * as spotifyApi from './apiCall.js'
 let containerImages = document.getElementById("GeneratorContainer");
 let progressBarClicks;
 let calculateScore;
 let progressBarCircles = document.getElementsByClassName("progressItems");
+let generatedPlaylistData;
+
 
 //This variable is used to save the urls of the chosen images. In order to prohibit duplicates
 let chosenImagesUrls = [];
@@ -170,12 +173,29 @@ init();
 
 function init() {
     //Deze variabelen wordt gebruikt voor de eerstvolgende progressbar circle te kiezen & opvullen.
-    calculateScore = 0;
-    progressBarClicks = 1;
-    getPlaylists();
-    playlistGenerator.initiateGenerator();
-}
+    //Check if authentication is complete
+    if (window.location.hash) {
+        console.log("authenticated")
+        calculateScore = 0;
+        progressBarClicks = 1;
+        getPlaylists();
+        playlistGenerator.initiateGenerator();
+    } else {
+        console.log("Not Authenticated");
+        spotifyApi.authenticateUser();
+    }
 
+}
+async function getPlaylists() {
+    console.log("INIT");
+    await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
+        return response.json();
+    }).then(data => {
+        //challengesList = data;
+        console.log("Fetch this: ", data);
+        generatedPlaylistData = data;
+    })
+}
 
 function generatorImageButtons() {
     //Eerst de foto's ophalen en gebruiken als knop. Hier wordt functie aan vastgebonden bij klik event.
@@ -215,7 +235,6 @@ function generateScore(elementID) {
         }
     });
 }
-let generatedPlaylistData;
 
 function fillResultPage(category) {
     console.log("Fill result");
@@ -253,7 +272,7 @@ function fillResultPage(category) {
 </div>
 <div id="playlist_results_links">
     <ul id="playlistLinksList">
-        <li id="openSpotifyButton" class="playlistLinks">Open in Spotify </li>
+        <li id="openSpotifyButton" class="playlistLinks">Save on Spotify</li>
         <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
     </ul>
 </div>
@@ -262,17 +281,17 @@ function fillResultPage(category) {
     containerResult.innerHTML = html;
     containerResult.style.display = "block";
 
+    //add functions to open spotify button
+    let spotifyOpenButtons = document.getElementById("openSpotifyButton");
+    spotifyOpenButtons.addEventListener("click", function () {
+        callSpotifyAPI(oneChosenPlaylist);
+        spotifyOpenButtons.innerHTML = "Saved!"
+    })
 }
 
-async function getPlaylists() {
-    console.log("INIT");
-    await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
-        return response.json();
-    }).then(data => {
-        //challengesList = data;
-        console.log("Fetch this: ", data);
-        generatedPlaylistData = data;
-    })
+function callSpotifyAPI(chosenPlaylist) {
+    console.log("Calling API...")
+    spotifyApi.createPlaylistForUser(chosenPlaylist);
 
 
 }

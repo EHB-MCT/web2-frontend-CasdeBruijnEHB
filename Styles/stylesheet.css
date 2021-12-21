@@ -295,6 +295,17 @@ main {
 
 }
 
+/*Thank you page*/
+#thankyouImage {
+    width: 30%;
+    height: auto;
+}
+
+#thankyouContainer {
+    padding-top: 2%;
+    width: 100%;
+    text-align: center;
+}
 
 /*About page*/
 #aboutPageContent {
