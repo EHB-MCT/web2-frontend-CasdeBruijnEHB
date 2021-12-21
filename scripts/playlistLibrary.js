@@ -208,14 +208,6 @@ async function getPlaylists() {
         addCuratedPlaylists(data)
     })
 
-    await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
-        return response.json();
-    }).then(data => {
-        //challengesList = data;
-        //console.log("Fetch this: ", data);
-    })
-
-
 
 }
 
@@ -232,7 +224,6 @@ function addCuratedPlaylists(playlists) {
             `
     })
     containerLibrary.innerHTML = html;
-    pageElements = document.getElementsByClassName("playlistImage");
     let buttons = document.getElementsByClassName("playlistImage");
     addButtonEvents(buttons);
 }
@@ -275,12 +266,18 @@ function showPlaylistResult(clickELementID) {
  </div>
  <div id="playlist_results_links">
      <ul id="playlistLinksList">
-         <li id="openSpotifyButton" class="playlistLinks">Save playlist</li>
+         <li id="openSpotifyButton" class="playlistLinks">Save on Spotify</li>
          <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
      </ul>
  </div>
      `
     resultContent.innerHTML = html;
     resultContent.style.display = "block";
+
+    let openSpotifyButton = document.getElementById("openSpotifyButton");
+    openSpotifyButton.addEventListener("click", function () {
+        console.log("Save on spotify");
+    })
+    console.log(openSpotifyButton);
 
 }

@@ -172,6 +172,7 @@ function init() {
     //Deze variabelen wordt gebruikt voor de eerstvolgende progressbar circle te kiezen & opvullen.
     calculateScore = 0;
     progressBarClicks = 1;
+    getPlaylists();
     playlistGenerator.initiateGenerator();
 }
 
@@ -214,21 +215,40 @@ function generateScore(elementID) {
         }
     });
 }
+let generatedPlaylistData;
 
 function fillResultPage(category) {
     console.log("Fill result");
-    console.log("totaal:", calculateScore)
+    let chosenPlaylist = [];
+    generatedPlaylistData.forEach((element, index) => {
+        if (element.mainCategory === category.toLowerCase()) {
+            chosenPlaylist.push(element);
+        }
+    })
+    //Dan sorteren adhv de score van de playlists.
+    chosenPlaylist.sort(function (a, b) {
+        return a.score - b.score;
+    });
+
+    //Hier gaan we kijken of de score groter is dan de score van de playlist. Indien niet meer, die score en dus playlist gebruiken!
+    let oneChosenPlaylist = chosenPlaylist.find(x => x.score >= calculateScore);
+
+
+    console.log("De chosen playlists", chosenPlaylist);
+    console.log("De calculatd value: ", calculateScore)
+    console.log("De chosen playlist;", oneChosenPlaylist);
+
     //window.location.replace("./playlistResultPage.html");
 
     let containerResult = document.getElementById("generatorPage");
     let titlepage = document.getElementById("titleGenerator");
     let html = `
     <div id="container_playlist_cooking">
-    <img id="playlistResultImages" src="./Images/PlaylistLibrary/CDCuratedCooking.png" alt="">
+    <img id="playlistResultImages" src="data:image/jpeg;base64,${oneChosenPlaylist.imageurl}" alt="">
     <div id="textContentPlaylistResult">
-        <h2 id="librarySubtitle">Stumble Playlists: 01</h2>
-        <p id="curatedBy"></p>
-        <p id="playlistDescription">Featuring artists like Kid Cudi, Tame Impala and Erykah Badu.</p>
+        <h2 id="librarySubtitle">${oneChosenPlaylist.title}</h2>
+        <p id="curatedBy">${oneChosenPlaylist.description}</p>
+        <p id="playlistDescription">${oneChosenPlaylist.description}</p>
     </div>
 </div>
 <div id="playlist_results_links">
@@ -241,5 +261,18 @@ function fillResultPage(category) {
     titlepage.innerHTML = "The playlist for you"
     containerResult.innerHTML = html;
     containerResult.style.display = "block";
+
+}
+
+async function getPlaylists() {
+    console.log("INIT");
+    await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
+        return response.json();
+    }).then(data => {
+        //challengesList = data;
+        console.log("Fetch this: ", data);
+        generatedPlaylistData = data;
+    })
+
 
 }
