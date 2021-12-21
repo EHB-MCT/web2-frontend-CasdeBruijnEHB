@@ -285,13 +285,11 @@ function fillResultPage(category) {
     let spotifyOpenButtons = document.getElementById("openSpotifyButton");
     spotifyOpenButtons.addEventListener("click", function () {
         callSpotifyAPI(oneChosenPlaylist);
-        spotifyOpenButtons.innerHTML = "Saved!"
+        spotifyOpenButtons.innerHTML = "Playlist saved!"
     })
 }
 
 function callSpotifyAPI(chosenPlaylist) {
     console.log("Calling API...")
     spotifyApi.createPlaylistForUser(chosenPlaylist);
-
-
 }

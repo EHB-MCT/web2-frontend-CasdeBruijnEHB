@@ -126,7 +126,7 @@ async function followPlaylist(token, playlistID, accesstoken) {
 //VOOR PLAYLIST TOE TE VOEGEN. EERST PROBEREN GEWOON TE VOLGEN
 
 async function createPlaylist(token, userID, accessToken, playlistData) {
-    
+
     console.log("Create playlist, data:", playlistData)
     //Create playlist
     const result = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
@@ -147,23 +147,37 @@ async function createPlaylist(token, userID, accessToken, playlistData) {
     //this.createdPlaylistID = data.id;
     console.log("Create", data);
 
-    //Add tracks
-    addTracks(accessToken, playlistId, userID, playlistData);
+    //Get playlistItems
+    getPlaylistItems(accessToken, userID, playlistData, playlistId);
+
+
 
     //Add cover - Werkt nog niet
     addCover(accessToken, playlistId, userID, playlistData);
+}
+async function getPlaylistItems(accesstoken, userID, playlistData, idNewPlaylist) {
+    //here we need to get the tracks out of the spotify playlists, to add them to the newly created playlists
+    const result2 = await fetch(`https://api.spotify.com/v1/playlists/${playlistData.playlistID}/tracks`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + accesstoken
+        }
+    });
+    const data2 = await result2.json();
+    console.log("Playlist items, id first track", data2.items[1].track.id);
+    let arrayTrackIds = [];
+    data2.items.forEach((element, index) => {
+        arrayTrackIds.push('spotify:track:' + element.track.id);
+    })
+    console.log(arrayTrackIds);
 
+    //Add tracks
+    addTracks(accesstoken, idNewPlaylist, userID, arrayTrackIds);
 
 }
 
-
 async function addCover(accessToken, playlistId, userID, playlistData) {
-    //let im = new Image();
-    //im.src = ('./CuratedCover_DancingV2.png');
-    //let imagesource = im.src;
-    let imagesource = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
-
-
     const result2 = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/images`, {
         method: 'PUT',
         headers: {
@@ -178,7 +192,7 @@ async function addCover(accessToken, playlistId, userID, playlistData) {
 }
 
 
-async function addTracks(accessToken, playlistId, userID, playlistData) {
+async function addTracks(accessToken, playlistId, userID, trackData) {
     const result = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
         method: 'POST',
         headers: {
@@ -187,7 +201,7 @@ async function addTracks(accessToken, playlistId, userID, playlistData) {
             'Authorization': 'Bearer ' + accessToken
         },
         body: JSON.stringify({
-            "uris": ["spotify:track:3aUviSdBVbsdmH406j5GZC", "spotify:track:1ux778Ljln0QEitz2fB4PH", "spotify:track:300DUx4tdtCdGEUXR032jA"]
+            "uris": trackData
         })
     });
     const data = await result.json();
