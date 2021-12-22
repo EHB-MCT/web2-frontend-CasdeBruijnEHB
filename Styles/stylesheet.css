@@ -1,4 +1,5 @@
 /*********************GENERAL*********************/
+
 @import url("https://use.typekit.net/fja6byn.css");
 
 * {
@@ -9,6 +10,7 @@
     /*WEIGHT: REGULAR*/
     font-weight: 400;
     font-style: normal;
+    font-size: 100%;
 }
 
 /*********************SCROLLBAR*********************/
@@ -27,6 +29,9 @@
     border-radius: 5px;
 }
 
+p {
+    font-size: 1rem;
+}
 
 /*********************HEADER*********************/
 header {
@@ -39,12 +44,15 @@ header {
 
 img {
     cursor: pointer;
+    max-width: 100%;
+    height: auto;
+
 }
 
 #logo {
     /*WEIGHT: BLACK*/
     font-weight: 900;
-    font-size: 70pt;
+    font-size: 5rem;
     display: inline;
     padding-right: 25%;
 }
@@ -53,6 +61,7 @@ nav {
     /*WEIGHT: MEDIUM*/
     font-weight: 500;
     width: 100%;
+    font-size: 1rem;
 
 }
 
@@ -84,7 +93,7 @@ nav {
 .regularPageTitle {
     /*WEIGHT: MEDIUM*/
     font-weight: 500;
-    font-size: 40pt;
+    font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 0;
@@ -145,10 +154,10 @@ main {
     height: auto;
 }
 
-/*Regular content*/
+/*Regular Generator page*/
 
 #GeneratorContainer {
-    padding-top: 4%;
+    padding-top: 0%;
     display: flex;
     justify-content: center;
 }
@@ -170,6 +179,7 @@ main {
 #progressbar {
     counter-reset: step;
     margin-left: 20%;
+    margin-top: 2%;
 }
 
 #progressbar li {
@@ -197,7 +207,7 @@ main {
     width: 100%;
     height: 1px;
     background-color: white;
-    top: 25px;
+    top: 55%;
     left: -50%;
     z-index: 0;
 }
@@ -250,8 +260,8 @@ main {
 /*Playlist result page*/
 #librarySubtitle {
     font-weight: 500;
-    font-size: 30pt;
-    margin-top: 0;
+    font-size: 2.5rem;
+    margin-top: 5%;
     margin-bottom: 0;
 }
 
@@ -271,7 +281,7 @@ main {
 }
 
 #playlist_results_links {
-    padding-top: 1%;
+    margin-top: -2%;
 }
 
 #playlistLinksList {
@@ -283,7 +293,7 @@ main {
 
 #playlistLinksList li {
     text-transform: uppercase;
-    font-size: 15pt;
+    font-size: 1.5rem;
     padding-left: 12%;
     padding-right: 12%;
 
@@ -342,6 +352,6 @@ footer {
 
     font-weight: 500;
     /*Medium*/
-    font-size: 10pt;
+    font-size: 0.7rem;
 
 }
