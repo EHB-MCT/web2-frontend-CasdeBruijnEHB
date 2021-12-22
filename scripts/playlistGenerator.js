@@ -273,7 +273,7 @@ function fillResultPage(category) {
 <div id="playlist_results_links">
     <ul id="playlistLinksList">
         <li id="openSpotifyButton" class="playlistLinks">Save on Spotify</li>
-        <li id="goBackButton" class="playlistLinks"><a href="./playlistGenerator.html">Go back</a></li>
+        <li id="goBackButton" class="playlistLinks"><a href="./introPageGenerator.html">Go back</a></li>
     </ul>
 </div>
     `

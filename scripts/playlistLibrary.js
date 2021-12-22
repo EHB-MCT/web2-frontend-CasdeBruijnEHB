@@ -274,7 +274,7 @@ function showPlaylistResult(clickELementID) {
  <div id="playlist_results_links">
      <ul id="playlistLinksList">
          <li id="openSpotifyButton" class="playlistLinks">Save on Spotify</li>
-         <li id="goBackButton" class="playlistLinks"><a href="./playlistLibrary.html">Go back</a></li>
+         <li id="goBackButton" class="playlistLinks">Go back</li>
      </ul>
  </div>
      `
@@ -291,9 +291,22 @@ function showPlaylistResult(clickELementID) {
             callSpotifyAPI(chosenPlaylist)
         }
     })
+
+    let goBackButton = document.getElementById("goBackButton");
+    goBackButton.addEventListener("click", function () {
+        console.log("click");
+        restorePage(resultContent);
+    })
 }
 
 function callSpotifyAPI(chosenPlaylist) {
     console.log("Calling API...")
     spotifyApi.createPlaylistForUser(chosenPlaylist);
+}
+
+function restorePage(containerResult) {
+    let libraryContent = document.getElementById("libraryContent");
+    libraryContent.style.display = "block";
+    containerResult.innerHTML = "";
+    containerResult.style.display = "none";
 }
