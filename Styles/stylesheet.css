@@ -62,7 +62,6 @@ nav {
     font-weight: 500;
     width: 100%;
     font-size: 1rem;
-
 }
 
 #navItems {
@@ -74,15 +73,14 @@ nav {
 }
 
 #navItems li {
-
-    float: left;
+    float: left
 }
 
 .nav {
     padding-top: 3.5%;
     padding-left: 10%;
-
 }
+
 
 #navItems a {
     display: block;
@@ -119,6 +117,7 @@ main {
     display: flex;
     text-align: center;
     padding-top: 0%;
+
 }
 
 #homepagefoto img {
@@ -422,4 +421,87 @@ input {
 #containerAdmin {
     margin-top: 2%;
     margin-left: 2%;
+}
+
+/*Media queries*/
+/* Media query Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    * {
+        background-color: blue;
+    }
+
+    .nav {
+        padding-left: 5%;
+
+    }
+
+}
+
+/* Media query Tabled Portrait */
+@media screen and (max-width: 850px) {
+    * {
+        background-color: green;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .nav {
+        font-size: 0.8rem;
+        padding-left: 10vw;
+        vertical-align: top;
+    }
+
+    #navLogoLI {
+        margin-left: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #homepagefoto {
+        flex-direction: column;
+
+    }
+
+    #homepagefoto img {
+        padding-left: 30%;
+        width: 50vw;
+        height: auto;
+    }
+
+    #homepagefoto p {
+        width: 100%;
+    }
+}
+
+/* GSM media query */
+@media screen and (max-width: 470px) {
+    * {
+        background-color: Olive;
+    }
+
+    p {
+        font-size: 0.7rem;
+    }
+
+    .nav {
+        font-size: 0.7rem;
+        padding-left: 6vw;
+        vertical-align: top;
+    }
+
+    #navLogoLI {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #homepagefoto img {
+        padding-left: 25%;
+        width: 60vw;
+        height: auto;
+    }
 }

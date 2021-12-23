@@ -117,7 +117,7 @@ async function followPlaylist(token, playlistID, accesstoken) {
 
 async function createPlaylist(token, userID, accessToken, playlistData) {
 
-    console.log("Create playlist, data:", playlistData)
+    console.log("Create playlist, data:", playlistData.description)
     //Create playlist
     const result = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
         method: 'POST',
@@ -177,8 +177,8 @@ async function addCover(accessToken, playlistId, userID, playlistData) {
         body: playlistData.imageurl
 
     });
-    const data2 = await result2.json();
-    console.log("FOto", data2);
+    // const data2 = await result2.json();
+    //console.log("FOto", data2);
 }
 
 
