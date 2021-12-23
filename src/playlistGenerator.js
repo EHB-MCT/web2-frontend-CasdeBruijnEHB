@@ -258,8 +258,6 @@ function fillResultPage(category) {
     console.log("De calculatd value: ", calculateScore)
     console.log("De chosen playlist;", oneChosenPlaylist);
 
-    //window.location.replace("./playlistResultPage.html");
-
     let containerResult = document.getElementById("generatorPage");
     let titlepage = document.getElementById("titleGenerator");
     let html = `

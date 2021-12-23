@@ -24,6 +24,9 @@ For the Spotify API
 - Requests https://www.youtube.com/watch?v=SbelQW2JaDQ&list=LL&index=28&t=1072s
 
 
-
 CSS loader
 -https://redstapler.co/add-loading-animation-to-website/
+
+General
+- Find array function //https://www.codegrepper.com/code-examples/javascript/javascript+get+array+object+by+id
+
