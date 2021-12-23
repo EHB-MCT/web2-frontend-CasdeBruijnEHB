@@ -13,98 +13,98 @@ let chosenImagesUrls = [];
 
 const playlistGenerator = {
     category_images: [{
-            imageUrl: "./Images/Generator/CategoryPictures/One.png",
+            imageUrl: "../Images/Generator/CategoryPictures/One.png",
             mainCategory: "purpleBlackRed"
         }, {
-            imageUrl: "./Images/Generator/CategoryPictures/Two.png",
+            imageUrl: "../Images/Generator/CategoryPictures/Two.png",
             mainCategory: "purpleBlackRed"
         }, {
-            imageUrl: "./Images/Generator/CategoryPictures/Three.png",
+            imageUrl: "../Images/Generator/CategoryPictures/Three.png",
             mainCategory: "orangeYellowPink"
         },
         {
-            imageUrl: "./Images/Generator/CategoryPictures/Four.png",
+            imageUrl: "../Images/Generator/CategoryPictures/Four.png",
             mainCategory: "orangeYellowPink"
         },
         {
-            imageUrl: "./Images/Generator/CategoryPictures/Five.png",
+            imageUrl: "../Images/Generator/CategoryPictures/Five.png",
             mainCategory: "brownCreamGreenBlue"
         }
     ],
     playlist_brownCreamGreenBlue: [{
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Funky.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Funky.png",
         score: "1",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Pharrel.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Pharrel.png",
         score: "3",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Skate.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Skate.png",
         score: "3",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/VHS.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/VHS.png",
         score: "5",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Vintage.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Vintage.png",
         score: "2",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Brug.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Brug.png",
         score: "8",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Lights.png",
+        imageUrl: "../Images/Generator/brownCreamGreenBlue/Lights.png",
         score: "13",
         mainCategory: "brownCreamGreenBlue"
     }],
     playlist_orangeYellowPink: [{
-            imageUrl: "./Images/Generator/OrangeYellowPink/Drinking.png",
+            imageUrl: "../Images/Generator/OrangeYellowPink/Drinking.png",
             score: "1",
             mainCategory: "orangeYellowPink"
         }, {
-            imageUrl: "./Images/Generator/OrangeYellowPink/Oranges.png",
+            imageUrl: "../Images/Generator/OrangeYellowPink/Oranges.png",
             score: "3",
             mainCategory: "orangeYellowPink"
         },
         {
-            imageUrl: "./Images/Generator/OrangeYellowPink/Heart.png",
+            imageUrl: "../Images/Generator/OrangeYellowPink/Heart.png",
             score: "8",
             mainCategory: "orangeYellowPink"
         }, {
-            imageUrl: "./Images/Generator/OrangeYellowPink/Kersen.png",
+            imageUrl: "../Images/Generator/OrangeYellowPink/Kersen.png",
             score: "7",
             mainCategory: "orangeYellowPink"
         }
     ],
     playlist_purpleBlackRed: [{
-        imageUrl: "./Images/Generator/PurpleBlackRed/CD.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/CD.png",
         score: "7",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Distorted.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Distorted.png",
         score: "5",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Distorter.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Distorter.png",
         score: "10",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Futuristic.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Futuristic.png",
         score: "4",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Space.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Space.png",
         score: "8",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Motor.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Motor.png",
         score: "2",
         mainCategory: "purpleBlackRed"
     }, {
-        imageUrl: "./Images/Generator/PurpleBlackRed/Stronger.png",
+        imageUrl: "../Images/Generator/PurpleBlackRed/Stronger.png",
         score: "1",
         mainCategory: "purpleBlackRed"
     }],
