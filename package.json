@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/EHB-MCT/web2-frontend-CasdeBruijnEHB/issues"
   },
-  "homepage": "https://github.com/EHB-MCT/web2-frontend-CasdeBruijnEHB/index.html",
+  "homepage": "https://github.com/EHB-MCT/web2-frontend-CasdeBruijnEHB/dist/index.html",
   "devDependencies": {
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
