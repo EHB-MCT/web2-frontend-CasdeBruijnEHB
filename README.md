@@ -20,3 +20,5 @@ For the Spotify API
 -Spotify documentation https://developer.spotify.com/documentation/web-api/
 - https://www.youtube.com/watch?v=SbelQW2JaDQ&t=1070s
 
+CSS loader
+-https://redstapler.co/add-loading-animation-to-website/
