@@ -4,9 +4,10 @@
 //EXTRA Authorization Spotify variabelen
 
 export function authenticateUser(redirectlocation) {
-    let href = window.location.href;
-    let pos = href.indexOf('/', 7);
-    let beginhref = href.substring(0, pos + 1);
+    //let href = window.location.href;
+    //let pos = href.indexOf('/', 7);
+    //let beginhref = href.substring(0, pos + 1);
+    let beginhref = "https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/"
     if (redirectlocation == 'spotifyLibrary') {
         console.log("Naar library page");
         redirect_url_afterlogin = `${beginhref}playlistLibrary.html`;
