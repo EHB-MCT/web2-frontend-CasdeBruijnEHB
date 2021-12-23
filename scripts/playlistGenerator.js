@@ -7,6 +7,7 @@ let progressBarCircles = document.getElementsByClassName("progressItems");
 let generatedPlaylistData;
 
 
+
 //This variable is used to save the urls of the chosen images. In order to prohibit duplicates
 let chosenImagesUrls = [];
 

@@ -1,7 +1,6 @@
 import * as api from './index.js';
 import * as spotifyApi from './apiCall.js'
 
-
 let containerLibrary = document.getElementById("playlistPictures");
 
 /*

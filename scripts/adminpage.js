@@ -3,6 +3,8 @@ let buttonAddCuratedPlaylist = document.getElementById("buttonAddCuratedPlaylist
 let buttonAddGeneratedPlaylist = document.getElementById("buttonAddGeneratedPlaylist");
 let buttonRemovePlaylist = document.getElementById("buttonDeletePlaylist");
 
+
+
 buttonAddCuratedPlaylist.addEventListener("click", function () {
     container.innerHTML = "";
     let html = `<form>

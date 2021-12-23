@@ -4,13 +4,16 @@
 //EXTRA Authorization Spotify variabelen
 
 export function authenticateUser(redirectlocation) {
+    let href = window.location.href;
+    let pos = href.indexOf('/', 7);
+    let beginhref = href.substring(0, pos + 1);
     if (redirectlocation == 'spotifyLibrary') {
         console.log("Naar library page");
-        redirect_url_afterlogin = "http://127.0.0.1:5501/playlistLibrary.html";
+        redirect_url_afterlogin = `${beginhref}playlistLibrary.html`;
 
     } else {
         console.log("Naar generator page")
-        redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
+        redirect_url_afterlogin = `${beginhref}playlistGenerator.html`;
 
     }
     getToken()
