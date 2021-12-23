@@ -19,6 +19,11 @@ SOURCES
 For the Spotify API
 -Spotify documentation https://developer.spotify.com/documentation/web-api/
 - https://www.youtube.com/watch?v=SbelQW2JaDQ&t=1070s
+-Login https://www.youtube.com/watch?v=G_WFk4wg9fk&list=LL&index=22
+- API https://www.youtube.com/watch?v=c5sWvP9h3s8&list=LL&index=28
+- Requests https://www.youtube.com/watch?v=SbelQW2JaDQ&list=LL&index=28&t=1072s
+
+
 
 CSS loader
 -https://redstapler.co/add-loading-animation-to-website/
