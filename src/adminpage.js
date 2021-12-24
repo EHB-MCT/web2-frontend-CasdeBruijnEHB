@@ -75,7 +75,7 @@ buttonAddGeneratedPlaylist.addEventListener("click", function () {
         }
     })
 })
-
+/*
 buttonRemovePlaylist.addEventListener("click", function () {
     container.innerHTML = "";
     let html = `<form>
@@ -92,6 +92,7 @@ buttonRemovePlaylist.addEventListener("click", function () {
         console.log("Delete playlist");
     })
 })
+*/
 
 async function addCuratedPlaylist(playlistID, title, description, imageurl) {
     fetch(`https://courseprojectwebii.herokuapp.com/postNewCuratedPlaylist`, {

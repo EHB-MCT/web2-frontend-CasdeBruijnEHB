@@ -18,15 +18,33 @@ SOURCES
 
 For the Spotify API
 -Spotify documentation https://developer.spotify.com/documentation/web-api/
-- https://www.youtube.com/watch?v=SbelQW2JaDQ&t=1070s
--Login https://www.youtube.com/watch?v=G_WFk4wg9fk&list=LL&index=22
-- API https://www.youtube.com/watch?v=c5sWvP9h3s8&list=LL&index=28
-- Requests https://www.youtube.com/watch?v=SbelQW2JaDQ&list=LL&index=28&t=1072s
+- For requests (post, get) https://www.youtube.com/watch?v=SbelQW2JaDQ&t=1070s & https://github.com/awicks44/JavaScript-SpotifyAPI
+-Login Popup & authentication https://www.youtube.com/watch?v=G_WFk4wg9fk&list=LL&index=22
+- For authentication https://www.youtube.com/watch?v=1vR3m0HupGI&t=1043s
+- API (how to use spotify documentation too) https://www.youtube.com/watch?v=c5sWvP9h3s8&list=LL&index=28
+- also for requests https://www.youtube.com/watch?v=SbelQW2JaDQ&list=LL&index=28&t=1072s
 
+For MongoDB, Express, Webpack
+- YouTube Mike Derycke https://www.youtube.com/c/MikeDerycke/videos
 
 CSS loader
 -https://redstapler.co/add-loading-animation-to-website/
 
+CSS buttons admit pages
+-https://getcssscan.com/css-buttons-examples
+
+Progressbar
+-https://www.youtube.com/watch?v=DYevj6UGNWA*/
+
+Custom scrollbars
+-https://ishadeed.com/article/custom-scrollbars-css/
+
 General
 - Find array function //https://www.codegrepper.com/code-examples/javascript/javascript+get+array+object+by+id
 
+
+
+Spotify Dummy account (indien gewenst)
+------------
+E-mail - ehbjohndoe@outlook.com
+PW - EHBbrussel
