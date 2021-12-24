@@ -19,11 +19,21 @@ export function authenticateUser(redirectlocation) {
     }
     getToken()
     requestUserAuth();
+
 }
+/*
+export function generateID() {
+    console.log("Get userID")
+    getReturnAccessToken(window.location.hash);
+    userID(parametersArray[0]);
+}
+
+*/
+
 export function createPlaylistForUser(playlistData) {
     console.log("Click create")
     getReturnAccessToken(window.location.hash);
-    createPlaylist(token, userId, parametersArray[0], playlistData);
+    createPlaylist(token, getUserID, parametersArray[0], playlistData);
 }
 
 let redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
@@ -38,13 +48,7 @@ const scopes_url_parm = scopes.join(space_delimiter);
 const clientId = '3b5e1281fd2a4f4a85feb85c9326513a';
 const clientSecret = '9e9b58417cdf4969a3f4e7885765f7f9';
 let token = "";
-
-
-
-
-
-
-
+let getUserID = "";
 
 getToken()
 async function getToken() {
@@ -64,6 +68,9 @@ async function getToken() {
 //========================================================================
 //AUTHENTICATION USER
 //========================================================================
+
+
+
 export function requestUserAuth() {
     let url = `${spotify_authorize_endpoint}?client_id=${clientId}&redirect_uri=${redirect_url_afterlogin}&scope=${scopes_url_parm}&response_type=token&show_dialog=true`;
     window.location.replace(url);
@@ -89,6 +96,7 @@ async function getReturnAccessToken(url) {
         //In deze volgorde; eerst access_token, daarna token_type, daarna expires_in
         parametersArray.push(parasplit[1]);
     }
+    getUser(parametersArray[0])
 }
 
 
@@ -96,13 +104,25 @@ async function getReturnAccessToken(url) {
 //Following & liking playlists, adding tracks & covers
 //========================================================================
 
+async function getUser(accesstoken) {
+    console.log("DATA");
+    const result2 = await fetch(`https://api.spotify.com/v1/me`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + accesstoken
+        }
+    });
+    const data2 = await result2.json();
+    getUserID = data2.id;
+    console.log("USER DATA", data2.id);
 
+}
 
 async function createPlaylist(token, userID, accessToken, playlistData) {
-
     console.log("Create playlist, data:", playlistData.description)
     //Create playlist
-    const result = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+    const result = await fetch(`https://api.spotify.com/v1/users/${getUserID}/playlists`, {
         method: 'POST',
         headers: {
             'accept': 'application/json',

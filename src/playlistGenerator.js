@@ -124,6 +124,7 @@ const playlistGenerator = {
         `;
 
         //Link een button & actie aan elke foto.
+        //containerImages.onclick(spotifyApi.generateID())
         generatorImageButtons();
     },
     updateHTML(maincategory) {
