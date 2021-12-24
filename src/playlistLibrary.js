@@ -75,7 +75,6 @@ function showPlaylistResult(clickELementID) {
      <div id="textContentPlaylistResult">
          <h2 id="librarySubtitle">${chosenPlaylist.title}</h2>
          <p id="curatedBy">${chosenPlaylist.description}</p>
-         <p id="playlistDescription">${chosenPlaylist.description}</p>
      </div>
  </div>
  <div id="playlist_results_links">

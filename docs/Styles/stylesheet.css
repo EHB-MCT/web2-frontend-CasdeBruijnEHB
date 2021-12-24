@@ -426,22 +426,53 @@ input {
 /*Media queries*/
 /* Media query Tablet Landscape */
 @media screen and (max-width: 1060px) {
-    * {
-        background-color: blue;
-    }
+
+    /*General*/
+
 
     .nav {
         padding-left: 5%;
 
     }
 
+    /*Generate intropage*/
+    .regularPageTitle {
+        font-size: 2.5rem;
+    }
+
+    #imagestartexperience {
+        width: 45%;
+    }
+
+    /*Aboutpage*/
+    #imgAboutPage {
+        width: 60vw;
+        min-height: 100%;
+
+    }
+
+    /*Library result content*/
+    #playlistResultImages {
+        width: 40%;
+        padding-right: 2%;
+    }
+
+    #librarySubtitle {
+        font-size: 2rem;
+    }
+
+    #playlistLinksList li {
+        font-size: 1.5rem;
+    }
+
+
 }
 
 /* Media query Tabled Portrait */
 @media screen and (max-width: 850px) {
-    * {
-        background-color: green;
-    }
+
+    /*General*/
+
 
     p {
         font-size: 0.9rem;
@@ -461,6 +492,12 @@ input {
         margin-bottom: 0;
     }
 
+    li:first-of-type {
+        width: 100%;
+    }
+
+    /*Homepage*/
+
     #homepagefoto {
         flex-direction: column;
 
@@ -475,13 +512,68 @@ input {
     #homepagefoto p {
         width: 100%;
     }
+
+    /*Generate intropage*/
+    .regularPageTitle {
+        font-size: 2.5rem;
+    }
+
+    /*Generator content*/
+    #GeneratorContainer {
+        padding-top: 10%;
+    }
+
+    /*Playlist library*/
+    #introText_Library {
+        padding-top: 5%;
+        margin-top: 6%;
+    }
+
+    #libraryContent {
+        padding-top: 8%;
+    }
+
+    /*Aboutpage*/
+    #imgAboutPage {
+        width: 60vw;
+    }
+
+    #aboutPageContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #aboutPageText {
+
+        width: 80%;
+    }
+
+    /*Library result content*/
+    #playlistResultImages {
+        width: 40%;
+        padding-right: 2%;
+    }
+
+    #librarySubtitle {
+        font-size: 1.5rem;
+    }
+
+    #playlistLinksList li {
+        font-size: 1.5rem;
+    }
+
+    #container_playlist_result {
+        padding-top: 5%;
+    }
+
+
 }
 
 /* GSM media query */
 @media screen and (max-width: 470px) {
-    * {
-        background-color: Olive;
-    }
+
+    /*General*/
+
 
     p {
         font-size: 0.7rem;
@@ -499,9 +591,64 @@ input {
         margin-bottom: 0;
     }
 
+    /*Homepage*/
     #homepagefoto img {
         padding-left: 25%;
         width: 60vw;
         height: auto;
     }
+
+    /*Playlist library*/
+    #introText_Library {
+        padding-top: 0%;
+        margin-top: 6%;
+        height: 50%;
+        padding-left: 10%;
+    }
+
+    #libraryContent {
+        padding-top: 5%;
+    }
+
+    #playlistPictures {
+        flex-direction: column;
+    }
+
+    .playlistImage {
+        width: 80%;
+    }
+
+    /*Generator intro */
+    .regularPageTitle {
+        font-size: 1.5rem;
+    }
+
+
+    #generatorIntrotext {
+        width: 80%;
+    }
+
+    #imagestartexperience {
+        width: 70%;
+    }
+
+    /*Library result content*/
+    #playlistResultImages {
+        width: 50%;
+        padding-right: 2%;
+    }
+
+    #librarySubtitle {
+        font-size: 1rem;
+    }
+
+    #playlistLinksList li {
+        font-size: 1rem;
+    }
+
+    #container_playlist_result {
+        padding-top: 0%;
+    }
+
+
 }

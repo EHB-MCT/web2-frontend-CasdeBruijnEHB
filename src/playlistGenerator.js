@@ -266,7 +266,6 @@ function fillResultPage(category) {
     <div id="textContentPlaylistResult">
         <h2 id="librarySubtitle">${oneChosenPlaylist.title}</h2>
         <p id="curatedBy">${oneChosenPlaylist.description}</p>
-        <p id="playlistDescription">${oneChosenPlaylist.description}</p>
     </div>
 </div>
 <div id="playlist_results_links">
