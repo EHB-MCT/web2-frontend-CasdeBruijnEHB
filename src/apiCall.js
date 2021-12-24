@@ -10,11 +10,11 @@ export function authenticateUser(redirectlocation) {
     let beginhref = "https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/"
     if (redirectlocation == 'spotifyLibrary') {
         console.log("Naar library page");
-        redirect_url_afterlogin = `${beginhref}/playlistLibrary.html`;
+        redirect_url_afterlogin = `${beginhref}playlistLibrary.html`;
 
     } else {
         console.log("Naar generator page")
-        redirect_url_afterlogin = `${beginhref}/playlistGenerator.html`;
+        redirect_url_afterlogin = `${beginhref}playlistGenerator.html`;
 
     }
     getToken()
