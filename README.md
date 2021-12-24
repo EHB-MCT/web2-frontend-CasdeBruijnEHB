@@ -1,5 +1,7 @@
 # web2-frontend-CasdeBruijnEHB
 web2-frontend-CasdeBruijnEHB created by GitHub Classroom
+URL
+https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/
 
 INTRODUCTION
 ------------
