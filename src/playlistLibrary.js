@@ -5,8 +5,13 @@ let containerLibrary = document.getElementById("playlistPictures");
 
 
 function init() {
+
+
+
+
     if (window.location.hash) {
         //Already authenticated
+        spotifyApi.updateUserId();
         getPlaylists();
     } else {
         //Not yet authenticated
@@ -18,7 +23,6 @@ function init() {
 init();
 let playlistDataCurated;
 async function getPlaylists() {
-    console.log("fetch")
     await fetch('https://courseprojectwebii.herokuapp.com/getCuratedPlaylists').then(response => {
         return response.json();
     }).then(data => {
@@ -47,18 +51,15 @@ function addCuratedPlaylists(playlists) {
 function addButtonEvents(buttons) {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", (e) => {
-            console.log(e.target.id)
             showPlaylistResult(e.target.id);
         })
     }
 }
 
 function showPlaylistResult(clickELementID) {
-    console.log("initial data curated: ", playlistDataCurated);
-    console.log("click data: ", clickELementID);
+
     //This is a function to get an element out of an array, based on the chosen ID.
     let chosenPlaylist = playlistDataCurated.find(x => x._id === clickELementID);
-    console.log("value", chosenPlaylist)
 
     //Code to show the result in the HTML
     //De library catalogus op onzichtbaar zetten
@@ -100,13 +101,12 @@ function showPlaylistResult(clickELementID) {
 
     let goBackButton = document.getElementById("goBackButton");
     goBackButton.addEventListener("click", function () {
-        console.log("click");
+
         restorePage(resultContent);
     })
 }
 
 function callSpotifyAPI(chosenPlaylist) {
-    console.log("Calling API...")
     spotifyApi.createPlaylistForUser(chosenPlaylist);
 }
 

@@ -9,11 +9,11 @@ export function authenticateUser(redirectlocation) {
     //let beginhref = href.substring(0, pos + 1);
     let beginhref = "https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/"
     if (redirectlocation == 'spotifyLibrary') {
-        console.log("Naar library page");
+        
         redirect_url_afterlogin = `${beginhref}playlistLibrary.html`;
 
     } else {
-        console.log("Naar generator page")
+        
         redirect_url_afterlogin = `${beginhref}playlistGenerator.html`;
 
     }
@@ -21,17 +21,10 @@ export function authenticateUser(redirectlocation) {
     requestUserAuth();
 
 }
-/*
-export function generateID() {
-    console.log("Get userID")
-    getReturnAccessToken(window.location.hash);
-    userID(parametersArray[0]);
-}
 
-*/
 
 export function createPlaylistForUser(playlistData) {
-    console.log("Click create")
+  
     getReturnAccessToken(window.location.hash);
     createPlaylist(token, getUserID, parametersArray[0], playlistData);
 }
@@ -69,12 +62,16 @@ async function getToken() {
 //AUTHENTICATION USER
 //========================================================================
 
+export function updateUserId(){
+    getUser(parametersArray[0])
+}
 
 
 export function requestUserAuth() {
     let url = `${spotify_authorize_endpoint}?client_id=${clientId}&redirect_uri=${redirect_url_afterlogin}&scope=${scopes_url_parm}&response_type=token&show_dialog=true`;
     window.location.replace(url);
-    console.log("click login");
+    
+
 
 
 
@@ -86,7 +83,7 @@ export function requestUserAuth() {
 
 let parametersArray = [];
 async function getReturnAccessToken(url) {
-    console.log("Return access");
+   
     const stringNaHashtag = url.substring(1);
     const paramatersURL = stringNaHashtag.split('&');
     for (let i = 0; i < paramatersURL.length; i++) {
@@ -105,7 +102,6 @@ async function getReturnAccessToken(url) {
 //========================================================================
 
 async function getUser(accesstoken) {
-    console.log("DATA");
     const result2 = await fetch(`https://api.spotify.com/v1/me`, {
         method: 'GET',
         headers: {
@@ -115,12 +111,10 @@ async function getUser(accesstoken) {
     });
     const data2 = await result2.json();
     getUserID = data2.id;
-    console.log("USER DATA", data2.id);
 
 }
 
 async function createPlaylist(token, userID, accessToken, playlistData) {
-    console.log("Create playlist, data:", playlistData.description)
     //Create playlist
     const result = await fetch(`https://api.spotify.com/v1/users/${getUserID}/playlists`, {
         method: 'POST',
@@ -137,7 +131,8 @@ async function createPlaylist(token, userID, accessToken, playlistData) {
     });
     const data = await result.json();
     let playlistId = data.id;
-    console.log("Create", data);
+
+
 
     //Get playlistItems
     getPlaylistItems(accessToken, userID, playlistData, playlistId);
@@ -157,12 +152,11 @@ async function getPlaylistItems(accesstoken, userID, playlistData, idNewPlaylist
         }
     });
     const data2 = await result2.json();
-    console.log("Playlist items, id first track", data2.items[1].track.id);
     let arrayTrackIds = [];
     data2.items.forEach((element, index) => {
         arrayTrackIds.push('spotify:track:' + element.track.id);
     })
-    console.log(arrayTrackIds);
+    
 
     //Add tracks
     addTracks(accesstoken, idNewPlaylist, userID, arrayTrackIds);
@@ -195,5 +189,5 @@ async function addTracks(accessToken, playlistId, userID, trackData) {
         })
     });
     const data = await result.json();
-    console.log("Create", data);
+   
 }

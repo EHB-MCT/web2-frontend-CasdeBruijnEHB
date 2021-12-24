@@ -177,24 +177,21 @@ function init() {
     //Deze variabelen wordt gebruikt voor de eerstvolgende progressbar circle te kiezen & opvullen.
     //Check if authentication is complete
     if (window.location.hash) {
-        console.log("authenticated")
         calculateScore = 0;
         progressBarClicks = 1;
+        spotifyApi.updateUserId();
         getPlaylists();
         playlistGenerator.initiateGenerator();
     } else {
-        console.log("Not Authenticated");
         spotifyApi.authenticateUser('spotifyGenerator');
     }
 
 }
 async function getPlaylists() {
-    console.log("INIT");
     await fetch('https://courseprojectwebii.herokuapp.com/getGeneratedPlaylists').then(response => {
         return response.json();
     }).then(data => {
         //challengesList = data;
-        console.log("Fetch this: ", data);
         generatedPlaylistData = data;
     })
 }
@@ -231,15 +228,13 @@ function generateScore(elementID) {
         urlTarget = urlTarget.substring(urlTarget.indexOf("Images") - 1);
         let newUrl = "." + urlTarget;
         if (newUrl === element.imageUrl) {
-            console.log("YEP", element.imageUrl)
-            console.log("YEP", element.score)
+
             calculateScore += parseInt(element.score);
         }
     });
 }
 
 function fillResultPage(category) {
-    console.log("Fill result");
     let chosenPlaylist = [];
     generatedPlaylistData.forEach((element, index) => {
         if (element.mainCategory === category.toLowerCase()) {
@@ -255,9 +250,6 @@ function fillResultPage(category) {
     let oneChosenPlaylist = chosenPlaylist.find(x => x.score >= calculateScore);
 
 
-    console.log("De chosen playlists", chosenPlaylist);
-    console.log("De calculatd value: ", calculateScore)
-    console.log("De chosen playlist;", oneChosenPlaylist);
 
     let containerResult = document.getElementById("generatorPage");
     let titlepage = document.getElementById("titleGenerator");
@@ -294,6 +286,5 @@ function fillResultPage(category) {
 }
 
 function callSpotifyAPI(chosenPlaylist) {
-    console.log("Calling API...")
     spotifyApi.createPlaylistForUser(chosenPlaylist);
 }
