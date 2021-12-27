@@ -1,5 +1,9 @@
 # web2-frontend-CasdeBruijnEHB
 web2-frontend-CasdeBruijnEHB created by GitHub Classroom
+URL
+
+**Ophalen van het userID lukte me niet, als je handmatig (binnen apiCall.js) de userID invult van een gebruiker werkt het allemaal wel**
+https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/
 
 INTRODUCTION
 ------------
