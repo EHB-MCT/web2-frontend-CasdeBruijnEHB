@@ -9,11 +9,11 @@ export function authenticateUser(redirectlocation) {
     //let beginhref = href.substring(0, pos + 1);
     let beginhref = "https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/"
     if (redirectlocation == 'spotifyLibrary') {
-        
+
         redirect_url_afterlogin = `${beginhref}playlistLibrary.html`;
 
     } else {
-        
+
         redirect_url_afterlogin = `${beginhref}playlistGenerator.html`;
 
     }
@@ -24,9 +24,9 @@ export function authenticateUser(redirectlocation) {
 
 
 export function createPlaylistForUser(playlistData) {
-  
+
     getReturnAccessToken(window.location.hash);
-    createPlaylist(token, getUserID, parametersArray[0], playlistData);
+    createPlaylist(token, parametersArray[0], playlistData);
 }
 
 let redirect_url_afterlogin = "http://127.0.0.1:5501/playlistGenerator.html";
@@ -62,15 +62,11 @@ async function getToken() {
 //AUTHENTICATION USER
 //========================================================================
 
-export function updateUserId(){
-    getUser(parametersArray[0])
-}
-
 
 export function requestUserAuth() {
     let url = `${spotify_authorize_endpoint}?client_id=${clientId}&redirect_uri=${redirect_url_afterlogin}&scope=${scopes_url_parm}&response_type=token&show_dialog=true`;
     window.location.replace(url);
-    
+
 
 
 
@@ -83,7 +79,7 @@ export function requestUserAuth() {
 
 let parametersArray = [];
 async function getReturnAccessToken(url) {
-   
+
     const stringNaHashtag = url.substring(1);
     const paramatersURL = stringNaHashtag.split('&');
     for (let i = 0; i < paramatersURL.length; i++) {
@@ -93,15 +89,22 @@ async function getReturnAccessToken(url) {
         //In deze volgorde; eerst access_token, daarna token_type, daarna expires_in
         parametersArray.push(parasplit[1]);
     }
-    getUser(parametersArray[0])
 }
 
 
 //========================================================================
 //Following & liking playlists, adding tracks & covers
 //========================================================================
+export async function getUserId() {
+    console.log("Loaded")
+    if (window.location.hash) {
+        await getUser(parametersArray[0]);
+    }
+
+}
 
 async function getUser(accesstoken) {
+
     const result2 = await fetch(`https://api.spotify.com/v1/me`, {
         method: 'GET',
         headers: {
@@ -112,10 +115,12 @@ async function getUser(accesstoken) {
     const data2 = await result2.json();
     getUserID = data2.id;
 
+
 }
 
-async function createPlaylist(token, userID, accessToken, playlistData) {
+async function createPlaylist(token, accessToken, playlistData) {
     //Create playlist
+    await getUserId();
     const result = await fetch(`https://api.spotify.com/v1/users/${getUserID}/playlists`, {
         method: 'POST',
         headers: {
@@ -135,14 +140,14 @@ async function createPlaylist(token, userID, accessToken, playlistData) {
 
 
     //Get playlistItems
-    getPlaylistItems(accessToken, userID, playlistData, playlistId);
+    getPlaylistItems(accessToken, playlistData, playlistId);
 
 
 
     //Add cover - Werkt nog niet
-    addCover(accessToken, playlistId, userID, playlistData);
+    addCover(accessToken, playlistId, playlistData);
 }
-async function getPlaylistItems(accesstoken, userID, playlistData, idNewPlaylist) {
+async function getPlaylistItems(accesstoken, playlistData, idNewPlaylist) {
     //here we need to get the tracks out of the spotify playlists, to add them to the newly created playlists
     const result2 = await fetch(`https://api.spotify.com/v1/playlists/${playlistData.playlistID}/tracks`, {
         method: 'GET',
@@ -156,14 +161,14 @@ async function getPlaylistItems(accesstoken, userID, playlistData, idNewPlaylist
     data2.items.forEach((element, index) => {
         arrayTrackIds.push('spotify:track:' + element.track.id);
     })
-    
+
 
     //Add tracks
-    addTracks(accesstoken, idNewPlaylist, userID, arrayTrackIds);
+    addTracks(accesstoken, idNewPlaylist, arrayTrackIds);
 
 }
 
-async function addCover(accessToken, playlistId, userID, playlistData) {
+async function addCover(accessToken, playlistId, playlistData) {
     const result2 = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/images`, {
         method: 'PUT',
         headers: {
@@ -176,7 +181,7 @@ async function addCover(accessToken, playlistId, userID, playlistData) {
 }
 
 
-async function addTracks(accessToken, playlistId, userID, trackData) {
+async function addTracks(accessToken, playlistId, trackData) {
     const result = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
         method: 'POST',
         headers: {
@@ -189,5 +194,5 @@ async function addTracks(accessToken, playlistId, userID, trackData) {
         })
     });
     const data = await result.json();
-   
+
 }

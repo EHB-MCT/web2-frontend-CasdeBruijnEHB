@@ -11,7 +11,6 @@ function init() {
 
     if (window.location.hash) {
         //Already authenticated
-        spotifyApi.updateUserId();
         getPlaylists();
     } else {
         //Not yet authenticated

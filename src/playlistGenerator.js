@@ -179,7 +179,6 @@ function init() {
     if (window.location.hash) {
         calculateScore = 0;
         progressBarClicks = 1;
-        spotifyApi.updateUserId();
         getPlaylists();
         playlistGenerator.initiateGenerator();
     } else {
