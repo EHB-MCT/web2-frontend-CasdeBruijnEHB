@@ -2,7 +2,7 @@
 web2-frontend-CasdeBruijnEHB created by GitHub Classroom
 URL
 
-**Ophalen van het userID lukte me niet, als je handmatig (binnen apiCall.js) de userID invult van een gebruiker werkt het allemaal wel**
+**You need to use Dummy account listed at the bottom to save a playlist, other accounts do not have access yet because the Spotify API is still in development mode**
 https://ehb-mct.github.io/web2-frontend-CasdeBruijnEHB/
 
 INTRODUCTION
