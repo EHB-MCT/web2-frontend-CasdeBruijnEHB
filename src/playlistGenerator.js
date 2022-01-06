@@ -32,31 +32,31 @@ const playlistGenerator = {
         }
     ],
     playlist_brownCreamGreenBlue: [{
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Funky.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Funky.png",
         score: "1",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Pharrel.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Pharrel.png",
         score: "3",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Skate.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Skate.png",
         score: "3",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/VHS.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/VHS.png",
         score: "5",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Vintage.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Vintage.png",
         score: "2",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Brug.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Brug.png",
         score: "8",
         mainCategory: "brownCreamGreenBlue"
     }, {
-        imageUrl: "./Images/Generator/brownCreamGreenBlue/Lights.png",
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Lights.png",
         score: "13",
         mainCategory: "brownCreamGreenBlue"
     }],
