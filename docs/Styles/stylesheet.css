@@ -147,10 +147,12 @@ main {
 }
 
 #imagestartexperience {
+    align-self: center;
     padding-top: 1%;
     width: 35%;
     padding-left: 15%;
     height: auto;
+
 }
 
 /*Regular Generator page*/
@@ -162,6 +164,7 @@ main {
 }
 
 .generatorImages {
+    align-self: center;
     padding-right: 5%;
     padding-left: 5%;
     width: 30%;
@@ -265,6 +268,7 @@ main {
 }
 
 #playlistResultImages {
+    align-self: center;
     height: auto;
     width: 28%;
 }
@@ -441,6 +445,7 @@ input {
     }
 
     #imagestartexperience {
+        align-self: center;
         width: 45%;
     }
 
@@ -453,6 +458,7 @@ input {
 
     /*Library result content*/
     #playlistResultImages {
+        align-self: center;
         width: 40%;
         padding-right: 2%;
     }
@@ -550,6 +556,7 @@ input {
 
     /*Library result content*/
     #playlistResultImages {
+        align-self: center;
         width: 40%;
         padding-right: 2%;
     }
@@ -574,6 +581,9 @@ input {
 
     /*General*/
 
+    main {
+        margin-top: 215px;
+    }
 
     p {
         font-size: 0.7rem;
@@ -629,11 +639,22 @@ input {
     }
 
     #imagestartexperience {
+        align-self: center;
         width: 70%;
+    }
+
+    .generatorImages {
+        align-self: center;
+        padding-right: 5%;
+        padding-left: 5%;
+        width: 40%;
+        height: auto;
     }
 
     /*Library result content*/
     #playlistResultImages {
+        align-self: center;
+
         width: 50%;
         padding-right: 2%;
     }
