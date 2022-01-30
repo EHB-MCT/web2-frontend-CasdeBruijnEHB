@@ -176,13 +176,19 @@ init();
 function init() {
     //Deze variabelen wordt gebruikt voor de eerstvolgende progressbar circle te kiezen & opvullen.
     //Check if authentication is complete
+    calculateScore = 0;
+    progressBarClicks = 1;
+    getPlaylists();
+    playlistGenerator.initiateGenerator();
+    
     if (window.location.hash) {
         calculateScore = 0;
         progressBarClicks = 1;
         getPlaylists();
         playlistGenerator.initiateGenerator();
     } else {
-        spotifyApi.authenticateUser('spotifyGenerator');
+        //Enable if you want to use API
+        //spotifyApi.authenticateUser('spotifyGenerator');
     }
 
 }

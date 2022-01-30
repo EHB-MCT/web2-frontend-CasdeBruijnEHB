@@ -8,13 +8,13 @@ function init() {
 
 
 
-
+    getPlaylists();
     if (window.location.hash) {
         //Already authenticated
         getPlaylists();
     } else {
-        //Not yet authenticated
-        spotifyApi.authenticateUser('spotifyLibrary');
+        //Not yet authenticated, enable is you want to use API
+        //spotifyApi.authenticateUser('spotifyLibrary');
     }
 
 
