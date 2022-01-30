@@ -279,7 +279,9 @@ function fillResultPage(category) {
         } else {
             spotifyOpenButtons.classList.remove("playlistLinks");
             spotifyOpenButtons.innerHTML = "Playlist saved!"
-            callSpotifyAPI(oneChosenPlaylist);
+            //callSpotifyAPI(oneChosenPlaylist);
+            window.open(`http://open.spotify.com/user/spotify/playlist/${oneChosenPlaylist.playlistID}`);
+
         }
     })
 }

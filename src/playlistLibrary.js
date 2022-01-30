@@ -94,7 +94,10 @@ function showPlaylistResult(clickELementID) {
         } else {
             openSpotifyButton.classList.remove("playlistLinks");
             openSpotifyButton.innerHTML = "Playlist saved!"
-            callSpotifyAPI(chosenPlaylist)
+            //Turn on if you want to actually call API again
+            //callSpotifyAPI(chosenPlaylist)
+            console.log(chosenPlaylist);
+            window.open(`http://open.spotify.com/user/spotify/playlist/${chosenPlaylist.playlistID}`);
         }
     })
 
