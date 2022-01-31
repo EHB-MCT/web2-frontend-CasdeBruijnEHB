@@ -55,6 +55,7 @@ img {
     font-size: 5rem;
     display: inline;
     padding-right: 25%;
+    cursor: pointer;
 }
 
 nav {

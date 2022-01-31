@@ -1,3 +1,9 @@
+let logo = document.getElementById("logo");
+logo.addEventListener("click", function () {
+    console.log("Click")
+    window.location.replace("index.html");
+})
+
 export function loaderAnimation() {
     window.addEventListener('load', (event) => {
         console.log('page is fully loaded');
