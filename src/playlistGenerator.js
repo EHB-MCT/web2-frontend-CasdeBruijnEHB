@@ -29,6 +29,10 @@ const playlistGenerator = {
         {
             imageUrl: "./Images/Generator/CategoryPictures/Five.png",
             mainCategory: "brownCreamGreenBlue"
+        },
+        {
+            imageUrl: "./Images/Generator/CategoryPictures/six.png",
+            mainCategory: "brownCreamGreenBlue"
         }
     ],
     playlist_brownCreamGreenBlue: [{
@@ -59,6 +63,42 @@ const playlistGenerator = {
         imageUrl: "./Images/Generator/BrownCreamGreenBlue/Lights.png",
         score: "13",
         mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Ball.png",
+        score: "5",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Car.png",
+        score: "6",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/CDplayer.png",
+        score: "3",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Chillin.png",
+        score: "2",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Shoes.png",
+        score: "4",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/arcade.png",
+        score: "7",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Kobe.png",
+        score: "6",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Leaves.png",
+        score: "11",
+        mainCategory: "brownCreamGreenBlue"
+    }, {
+        imageUrl: "./Images/Generator/BrownCreamGreenBlue/Sky.png",
+        score: "9",
+        mainCategory: "brownCreamGreenBlue"
     }],
     playlist_orangeYellowPink: [{
             imageUrl: "./Images/Generator/OrangeYellowPink/Drinking.png",
@@ -75,6 +115,38 @@ const playlistGenerator = {
             mainCategory: "orangeYellowPink"
         }, {
             imageUrl: "./Images/Generator/OrangeYellowPink/Kersen.png",
+            score: "7",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/Cloudy.png",
+            score: "3",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/Kitchen.png",
+            score: "2",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/NOART.png",
+            score: "4",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/Blinds.png",
+            score: "2",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/car.png",
+            score: "6",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/channel.png",
+            score: "2",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/stairs.png",
+            score: "3",
+            mainCategory: "orangeYellowPink"
+        }, {
+            imageUrl: "./Images/Generator/OrangeYellowPink/thehand.png",
             score: "7",
             mainCategory: "orangeYellowPink"
         }
@@ -106,6 +178,30 @@ const playlistGenerator = {
     }, {
         imageUrl: "./Images/Generator/PurpleBlackRed/Stronger.png",
         score: "1",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/Bat.png",
+        score: "5",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/MillerMac.png",
+        score: "1",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/Paint.png",
+        score: "2",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/Unknown.png",
+        score: "6",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/Stars.png",
+        score: "5",
+        mainCategory: "purpleBlackRed"
+    }, {
+        imageUrl: "./Images/Generator/PurpleBlackRed/Eyes.png",
+        score: "8",
         mainCategory: "purpleBlackRed"
     }],
     initiateGenerator() {
@@ -180,7 +276,7 @@ function init() {
     progressBarClicks = 1;
     getPlaylists();
     playlistGenerator.initiateGenerator();
-    
+
     if (window.location.hash) {
         calculateScore = 0;
         progressBarClicks = 1;
