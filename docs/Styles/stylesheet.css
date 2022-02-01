@@ -239,7 +239,8 @@ main {
     left: 0;
     top: 33%;
     height: 100%;
-    padding-top: 2%;
+    margin-top: -2%;
+    padding-top: 5%;
     padding-left: 17%;
     padding-right: 7%;
     width: 20%;
@@ -480,6 +481,11 @@ input {
         font-size: 1.5rem;
     }
 
+    #introText_Library {
+        top: 20%;
+        padding-top: 5%;
+        margin-top: 5%;
+    }
 
 }
 
@@ -487,7 +493,6 @@ input {
 @media screen and (max-width: 850px) {
 
     /*General*/
-
 
     p {
         font-size: 0.9rem;
@@ -540,7 +545,7 @@ input {
 
     /*Playlist library*/
     #introText_Library {
-        top: 20%;
+        top: 28%;
         padding-top: 5%;
         margin-top: 6%;
     }
@@ -622,7 +627,7 @@ input {
     #introText_Library {
         top: 30%;
         padding-top: 0%;
-        margin-top: 6%;
+        margin-top: 0%;
         height: 50%;
         padding-left: 10%;
     }
