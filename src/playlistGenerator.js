@@ -354,12 +354,15 @@ function fillResultPage(category) {
 
     let containerResult = document.getElementById("generatorPage");
     let titlepage = document.getElementById("titleGenerator");
+    let indexCurated = oneChosenPlaylist.description.indexOf('Containing');
+    let beforeCurated = oneChosenPlaylist.description.substring(0, indexCurated);
+    let afterCurated = oneChosenPlaylist.description.substring(indexCurated);
     let html = `
     <div id="container_playlist_cooking">
     <img id="playlistResultImages" src="data:image/jpeg;base64,${oneChosenPlaylist.imageurl}" alt="">
     <div id="textContentPlaylistResult">
         <h2 id="librarySubtitle">${oneChosenPlaylist.title}</h2>
-        <p id="curatedBy">${oneChosenPlaylist.description}</p>
+        <p id="curatedBy">${beforeCurated}<br><br>${afterCurated}</p>
     </div>
 </div>
 <div id="playlist_results_links">

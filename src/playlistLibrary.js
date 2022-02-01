@@ -69,12 +69,15 @@ function showPlaylistResult(clickELementID) {
 
     //De resultaatpage zichtbaar
     let resultContent = document.getElementById("container_playlist_result");
+    let indexCurated = chosenPlaylist.description.indexOf('Curated');
+    let beforeCurated = chosenPlaylist.description.substring(0, indexCurated);
+    let afterCurated = chosenPlaylist.description.substring(indexCurated);
     let html = `
      <div id="container_playlist_cooking">
      <img id="playlistResultImages" src="data:image/jpeg;base64,${chosenPlaylist.imageurl}" alt="">
      <div id="textContentPlaylistResult">
          <h2 id="librarySubtitle">${chosenPlaylist.title}</h2>
-         <p id="curatedBy">${chosenPlaylist.description}</p>
+         <p id="curatedBy">${beforeCurated}<br><br>${afterCurated}</p>
      </div>
  </div>
  <div id="playlist_results_links">

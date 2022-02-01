@@ -51,6 +51,7 @@ img {
 
 #logo {
     /*WEIGHT: BLACK*/
+
     font-weight: 900;
     font-size: 5rem;
     display: inline;
@@ -281,7 +282,13 @@ main {
 }
 
 #textContentPlaylistResult {
+    max-width: 35%;
     text-align: left;
+}
+
+#curatedBy {
+    max-width: 90%;
+    padding-left: 2%;
 }
 
 #playlist_results_links {
@@ -677,3 +684,31 @@ input {
 
 
 }
+
+/*Underline animation*/
+/*
+.underline {
+    text-decoration: none;
+    position: relative;
+}
+
+.underline:after {
+    position: absolute;
+    height: 20%;
+    margin: 0 auto;
+    content: '';
+    left: 80%;
+    right: 0;
+    width: 18vw;
+    color: #000;
+    background-color: rgb(206, 61, 61);
+    top: 27%;
+    z-index: -1;
+    
+}
+
+.underlineIndex {
+    background-color: transparent;
+    z-index: 1;
+}
+*/
